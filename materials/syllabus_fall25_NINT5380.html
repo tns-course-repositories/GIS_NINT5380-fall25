@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-08-04">
+
+<title>GIS for International Crises, Development and the Environment: Syllabus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="syllabus_fall25_NINT5380_files/libs/clipboard/clipboard.min.js"></script>
+<script src="syllabus_fall25_NINT5380_files/libs/quarto-html/quarto.js"></script>
+<script src="syllabus_fall25_NINT5380_files/libs/quarto-html/popper.min.js"></script>
+<script src="syllabus_fall25_NINT5380_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="syllabus_fall25_NINT5380_files/libs/quarto-html/anchor.min.js"></script>
+<link href="syllabus_fall25_NINT5380_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="syllabus_fall25_NINT5380_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="syllabus_fall25_NINT5380_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="syllabus_fall25_NINT5380_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="syllabus_fall25_NINT5380_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="syllabus_fall25_NINT5380_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#faculty-instructor" id="toc-faculty-instructor" class="nav-link active" data-scroll-target="#faculty-instructor">Faculty Instructor</a></li>
+  <li><a href="#weekly-class-session" id="toc-weekly-class-session" class="nav-link" data-scroll-target="#weekly-class-session">Weekly Class Session</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a></li>
+  <li><a href="#course-themes" id="toc-course-themes" class="nav-link" data-scroll-target="#course-themes">Course Themes</a></li>
+  <li><a href="#learning-outcomes" id="toc-learning-outcomes" class="nav-link" data-scroll-target="#learning-outcomes">Learning Outcomes</a></li>
+  <li><a href="#required-access-to-hardware-and-course-software" id="toc-required-access-to-hardware-and-course-software" class="nav-link" data-scroll-target="#required-access-to-hardware-and-course-software">Required Access to hardware and course software</a></li>
+  <li><a href="#required-course-textbook" id="toc-required-course-textbook" class="nav-link" data-scroll-target="#required-course-textbook">Required Course Textbook</a></li>
+  <li><a href="#course-technical-texts---recommendations-not-required-for-purchase" id="toc-course-technical-texts---recommendations-not-required-for-purchase" class="nav-link" data-scroll-target="#course-technical-texts---recommendations-not-required-for-purchase">Course Technical Texts - Recommendations (not required for purchase)</a></li>
+  <li><a href="#course-case-studies-cartographic-examples-not-required-for-purchase" id="toc-course-case-studies-cartographic-examples-not-required-for-purchase" class="nav-link" data-scroll-target="#course-case-studies-cartographic-examples-not-required-for-purchase">Course Case Studies &amp; Cartographic Examples (not required for purchase)</a></li>
+  <li><a href="#course-outline" id="toc-course-outline" class="nav-link" data-scroll-target="#course-outline">Course Outline</a>
+  <ul class="collapse">
+  <li><a href="#class-1-course-orientation" id="toc-class-1-course-orientation" class="nav-link" data-scroll-target="#class-1-course-orientation">Class 1 | Course Orientation</a></li>
+  <li><a href="#class-2-qgis-orientation" id="toc-class-2-qgis-orientation" class="nav-link" data-scroll-target="#class-2-qgis-orientation">Class 2 | QGIS Orientation</a></li>
+  <li><a href="#class-3-vector-model---latitude-longitude" id="toc-class-3-vector-model---latitude-longitude" class="nav-link" data-scroll-target="#class-3-vector-model---latitude-longitude">Class 3 | Vector Model - Latitude &amp; Longitude</a></li>
+  <li><a href="#class-4-cartographic-principles-intro-to-symbolization" id="toc-class-4-cartographic-principles-intro-to-symbolization" class="nav-link" data-scroll-target="#class-4-cartographic-principles-intro-to-symbolization">Class 4 | Cartographic Principles &amp; Intro to Symbolization</a></li>
+  <li><a href="#class-5-thematic-mapping" id="toc-class-5-thematic-mapping" class="nav-link" data-scroll-target="#class-5-thematic-mapping">Class 5 | Thematic Mapping</a></li>
+  <li><a href="#class-6-introduction-to-the-raster-data-model" id="toc-class-6-introduction-to-the-raster-data-model" class="nav-link" data-scroll-target="#class-6-introduction-to-the-raster-data-model">Class 6 | Introduction to the Raster Data Model</a></li>
+  <li><a href="#class-7-map-projections-intro-to-openstreetmap-osm-data" id="toc-class-7-map-projections-intro-to-openstreetmap-osm-data" class="nav-link" data-scroll-target="#class-7-map-projections-intro-to-openstreetmap-osm-data">Class 7 | Map Projections + Intro to OpenStreetMap (OSM) data</a></li>
+  <li><a href="#class-8-spatial-analysis-i---geoprocessing-within-the-vector-model" id="toc-class-8-spatial-analysis-i---geoprocessing-within-the-vector-model" class="nav-link" data-scroll-target="#class-8-spatial-analysis-i---geoprocessing-within-the-vector-model">Class 8 | Spatial Analysis I - Geoprocessing within the Vector Model</a></li>
+  <li><a href="#class-9-spatial-analysis-ii---geoprocessing-within-the-raster-model" id="toc-class-9-spatial-analysis-ii---geoprocessing-within-the-raster-model" class="nav-link" data-scroll-target="#class-9-spatial-analysis-ii---geoprocessing-within-the-raster-model">Class 9 | Spatial Analysis II - Geoprocessing within the Raster Model</a></li>
+  <li><a href="#class-10-mapping-vulnerability" id="toc-class-10-mapping-vulnerability" class="nav-link" data-scroll-target="#class-10-mapping-vulnerability">Class 10 | Mapping Vulnerability</a></li>
+  <li><a href="#class-11-remote-sensing-for-urban-analysis" id="toc-class-11-remote-sensing-for-urban-analysis" class="nav-link" data-scroll-target="#class-11-remote-sensing-for-urban-analysis">Class 11 | Remote Sensing for Urban Analysis</a></li>
+  </ul></li>
+  <li><a href="#required-recommended-reading---weekly-quizzes" id="toc-required-recommended-reading---weekly-quizzes" class="nav-link" data-scroll-target="#required-recommended-reading---weekly-quizzes">Required &amp; Recommended Reading - Weekly Quizzes</a>
+  <ul class="collapse">
+  <li><a href="#materials" id="toc-materials" class="nav-link" data-scroll-target="#materials">Materials</a></li>
+  </ul></li>
+  <li><a href="#evaluation-and-grading" id="toc-evaluation-and-grading" class="nav-link" data-scroll-target="#evaluation-and-grading">Evaluation and Grading</a></li>
+  <li><a href="#grading-categories" id="toc-grading-categories" class="nav-link" data-scroll-target="#grading-categories">Grading Categories</a></li>
+  <li><a href="#course-policies" id="toc-course-policies" class="nav-link" data-scroll-target="#course-policies">Course Policies</a></li>
+  <li><a href="#university-resources" id="toc-university-resources" class="nav-link" data-scroll-target="#university-resources">University Resources</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">GIS for International Crises, Development and the Environment: Syllabus</h1>
+<p class="subtitle lead">Fall 2025 | <a href="https://courses.newschool.edu/courses/NINT5380/2189/">NINT5380 - CRN 2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 4, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="https://i.imgur.com/UbPmEXF.png" class="img-fluid" alt="Imgur"> <em>Source: https://atlas.developmentseed.org/all/ | Connectivity Atlas</em></p>
+<section id="faculty-instructor" class="level2">
+<h2 class="anchored" data-anchor-id="faculty-instructor">Faculty Instructor</h2>
+<ul>
+<li>Stephen Metts | Part Time Associate Professor - The Schools for Public Engagement</li>
+<li><a href="mailto:mettss@newschool.edu">Email</a></li>
+</ul>
+</section>
+<section id="weekly-class-session" class="level2">
+<h2 class="anchored" data-anchor-id="weekly-class-session">Weekly Class Session</h2>
+<ul>
+<li>Monday (08/27/2025 - 12/17/2025)</li>
+<li>8:00pm - 9:50pm</li>
+<li>Online; Weekly Synchronous Meeting</li>
+<li><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vR5mkIaoNLTizAflzrOk313PJgpwIPCw5jd_fY1Tl1qobnQyt7OS5XakNJLW0cWpA0Vv9u0W9h2sXwO/pubhtml?gid=122342518&amp;single=true">Course Calendar</a></li>
+</ul>
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>Through weekly lectures, guided lab sessions, independent research, and a culminating final project, students will gain a working knowledge Geographic information Systems (GIS) and cartographic strategies vital to domestic and international public policy including climate challenges. As contemporary GIS software constitutes a predominant mapping platform across many disciplines and industries, students will gain a foothold in the practical application of this valuable software, as well as an understanding of how GIS relates to a myriad of global development issues. Further, students will develop proven skills in cartography, spatial data manipulation and analysis. From this course, students will gain a critical data skills foundation in spatial data that is highly relevant, valued and effective for addressing a myriad of issues found in today’s workplaces.</p>
+<p>Lecture sessions will introduce students to the history, theory and capabilities of GIS in an public policy and environmental context; corresponding weekly lab demonstrations will guide students towards mastery of GIS skills. Each week students will work both together in a class setting, as well as independently to complete technical assignments which draw upon spatial concepts introduced and detailed in a lecture setting (posted asynchronously online throughout the fall 2025 semester). In the latter portion of the course, students will segue towards developing their own GIS project for a particular research topic that corresponds with course themes. Through the final project, students will demonstrate their mastery and integration of course concepts through the practical and technical application of GIS technology.</p>
+<p>In the syllabus schedule to follow, the class as a group will meeting synchronously (online) via the meeting scheduled for consecutive Mondays, 8:00-9:50pm. The weekly synchronous meeting will be used to introduce the materials and details on a weekly basis, allowing the class to come together to review the previous week’s work and prepare for the week upcoming. Typically this online meeting will first review the previous week’s themes and assignment; introduce the upcoming week’s workflows and discuss pertinent issues of the week. Although the meeting is scheduled for nearly two hours, the typical online meeting will range from 1 hr 15 minutes to 1 hr 30 minutes. The instructor will be available for more individual Q &amp; A immediately following each week’ meeting.</p>
+<p>In addition to the weekly synchronous Monday meeting, each week features a <em>Lecture</em> (posted asynchronously online during fall 2025 semester) and <em>Demonstration Lab</em> component in addition to the <em>Weekly Assignment</em>. The <em>Demonstration Lab</em> is designed to reinforce concepts found in the weekly assignments. Students are encouraged to use <em>Demonstration Labs</em> as supplemental materials to each week’s assignment. Typically the <em>Demonstration Lab</em> component will feature extended workflow instructions to accomplish GIS tasks related to the weekly topic. Like lecture materials, these weekly <em>Demonstration Lab</em> materials will be made available for access throughout the course. They can prove useful for student enrichment beyond the weekly assignments; they can also be helpful in demonstrating different approaches to spatial problems introduced each week throughout the course, as well as key components of each week’s assignment.</p>
+</section>
+<section id="course-themes" class="level2">
+<h2 class="anchored" data-anchor-id="course-themes">Course Themes</h2>
+<ul>
+<li><p>‘Spatial’ thinking</p></li>
+<li><p>Spatial Data and its manipulation and analyses</p></li>
+<li><p>Fundamentals of Desktop Geographic Information Systems - GIS</p></li>
+<li><p>Cartographic strategies for effective public dissemination</p></li>
+<li><p>Spatial analysis</p></li>
+<li><p>GIS Suitability</p></li>
+<li><p>Location technologies</p></li>
+<li><p>Mapping vulnerability-exposure, vulnerability, and risk modeling for decision support</p></li>
+<li><p>Remote sensing, indices &amp; satellite sensor fundamentals</p></li>
+</ul>
+</section>
+<section id="learning-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="learning-outcomes">Learning Outcomes</h2>
+<p>By the end of the semester, successful students will:</p>
+<ul>
+<li><p>Demonstrate fundamental ‘spatial’ thinking skills to leverage data typical of disaster, humanitarian and international development contexts.</p></li>
+<li><p>Demonstrate a solid, working knowledge of spatial data and GIS through all graded outcomes of course.</p></li>
+<li><p>Articulate and develop research and data collection strategies around an unique research topic in disaster management, climate change and the environment, vulnerable communities, global migration and refugees or international development topics.</p></li>
+<li><p>Articulate their own understanding of research data and GIS processes through a final course GIS project.</p></li>
+<li><p>Participate effectively in class discussions, as well as conduct independent research and successfully master weekly GIS assignments.</p></li>
+<li><p>Demonstrate their ability to translate and migrate GIS data to other spatial technologies in both desktop and online environments.</p></li>
+<li><p>Develop their own GIS project with sufficient complexity, reflecting their mastery of GIS as it relates to their own research topic.</p></li>
+<li><p>Gain the ability to apply concepts and skills learned through course to future work in public policy, climate change, environmental studies and international development.</p></li>
+</ul>
+</section>
+<section id="required-access-to-hardware-and-course-software" class="level2">
+<h2 class="anchored" data-anchor-id="required-access-to-hardware-and-course-software">Required Access to hardware and course software</h2>
+<ul>
+<li>Ability to download and install on their own machines the QGIS software utilized for the course;</li>
+<li>And/or access to The New School <em>PC Lab</em> within Room 706 in the 16th Street building where <a href="https://qgis.org/en/site/">QGIS</a> is installed on Windows machines under the <em>Statistics and Research</em> folder at the <em>Start Menu</em>;</li>
+<li>a portable external USB drive with at least 32gb storage space to save and transport coursework and student final projects. Additionally, Cloud storage options can be used to manage assignment and project backups.</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students should download <a href="https://qgis.org/en/site/">QGIS</a> for an individual machine, although this is not necessarily required for the course (you will always have access to QGIS at least in Room 701 and Room 706 in the 16th Street building). The first assignment of the course will feature directions and options for downloading QGIS to individual machines - both MacOS and Windows as well as Linux. During the course, we will utilize the ‘long term release’ (LTR) of the software (as of fall 2025, the LTR is <code>QGIS 3.40.9 'Bratislava'</code>). You are welcome to download a more untested, experimental version of the software - known as the ‘latest release’; just note that on occasion you may run into assignment steps that are slightly different as they are based on an LTR, not latest release. Further, you can have multiple versions of the software on one machine - just note that will take up more memory space so proceed with multiple versions only if you have a need/desire and the space on your own machine to do so.</p>
+</div>
+</div>
+</section>
+<section id="required-course-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="required-course-textbook">Required Course Textbook</h2>
+<ul>
+<li>Michael Shin, Jonathan Campbell, and Sierra Burkhart. (2022). Essentials of Geographic Information Systems, V 3.0. ISBN: 978-1-4533-3762-2. FlatWorld Press.</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students can easily access this text in multiple formats; more information and direct link to the textbook is located in the <a href="https://gis-nspe-tns.github.io//GIS_NINT5380_fall25/materials/course.introduction_fall25_NINT5380.html">Class Introduction document</a>. Direct Link to course textbook located <a href="https://students.flatworldknowledge.com/engage/courses/2614254">HERE</a>.</p>
+</div>
+</div>
+</section>
+<section id="course-technical-texts---recommendations-not-required-for-purchase" class="level2">
+<h2 class="anchored" data-anchor-id="course-technical-texts---recommendations-not-required-for-purchase">Course Technical Texts - Recommendations (not required for purchase)</h2>
+<ul>
+<li><p>Menke, K. (2019). Discover QGIS 3.x: A Workbook for Classroom or Independent Study. ISBN-978-0998547763</p></li>
+<li><p>Madry, S. (2021). Introduction to QGIS: Open Source Geographic Information System. ISBN-978-1734464306</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Any reading materials outside the required course theory textbook will be provided to students on a weekly basis.</p>
+</div>
+</div>
+</section>
+<section id="course-case-studies-cartographic-examples-not-required-for-purchase" class="level2">
+<h2 class="anchored" data-anchor-id="course-case-studies-cartographic-examples-not-required-for-purchase">Course Case Studies &amp; Cartographic Examples (not required for purchase)</h2>
+<ul>
+<li>Ian Goldin , Robert Muggah (2020). Terra Incognita: 100 Maps to Survive the Next 100 Years. ISBN: 9781529124194</li>
+</ul>
+</section>
+<section id="course-outline" class="level2">
+<h2 class="anchored" data-anchor-id="course-outline">Course Outline</h2>
+<section id="class-1-course-orientation" class="level3">
+<h3 class="anchored" data-anchor-id="class-1-course-orientation">Class 1 | Course Orientation</h3>
+<ul>
+<li><p>Review of course materials (Syllabus, Course Expectations, Course Softwares)</p></li>
+<li><p>Soft Launch of Software Platform(s) for the course</p></li>
+<li><p>Discussion/demonstration of classroom software best practices</p></li>
+</ul>
+</section>
+<section id="class-2-qgis-orientation" class="level3">
+<h3 class="anchored" data-anchor-id="class-2-qgis-orientation">Class 2 | QGIS Orientation</h3>
+<section id="lecture" class="level4">
+<h4 class="anchored" data-anchor-id="lecture">Lecture:</h4>
+<ul>
+<li>An introduction to Cartography, Geographic Information Systems (GIS) &amp; Spatial Thinking</li>
+</ul>
+</section>
+<section id="demonstration-lab" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab">Demonstration Lab:</h4>
+<ul>
+<li>Introduction to QGIS Desktop Interface</li>
+</ul>
+</section>
+<section id="assignment" class="level4">
+<h4 class="anchored" data-anchor-id="assignment">Assignment:</h4>
+<ul>
+<li>Create an introductory, small scale global map with QGIS Desktop</li>
+</ul>
+</section>
+</section>
+<section id="class-3-vector-model---latitude-longitude" class="level3">
+<h3 class="anchored" data-anchor-id="class-3-vector-model---latitude-longitude">Class 3 | Vector Model - Latitude &amp; Longitude</h3>
+<section id="lecture-1" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-1">Lecture:</h4>
+<ul>
+<li>Introduction to Vector Model, Latitude &amp; Longitude</li>
+<li>Geographic Coordinate System (GCS)</li>
+<li>Spatial vs.&nbsp;Nonspatial data</li>
+</ul>
+</section>
+<section id="demonstration-lab-1" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-1">Demonstration Lab:</h4>
+<ul>
+<li>Developing &amp; mapping Lat/Lon points - Geographic Coordinate System (GCS)</li>
+<li>Working with <code>.csv</code>, <code>.shp</code>, <code>geojson</code><a href="http://geojson.io/#map=2/20.0/0.0">geojson.io</a> and <code>geodatabases</code></li>
+</ul>
+</section>
+<section id="assignment-1" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-1">Assignment:</h4>
+<ul>
+<li>Acquiring, cleaning and mapping data as Lat/Lon points features. Utilize <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9">NYC 311 Dataset</a></li>
+</ul>
+</section>
+</section>
+<section id="class-4-cartographic-principles-intro-to-symbolization" class="level3">
+<h3 class="anchored" data-anchor-id="class-4-cartographic-principles-intro-to-symbolization">Class 4 | Cartographic Principles &amp; Intro to Symbolization</h3>
+<section id="lecture-2" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-2">Lecture:</h4>
+<ul>
+<li>Cartographic design &amp; conventions</li>
+</ul>
+</section>
+<section id="demonstration-lab-2" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-2">Demonstration Lab:</h4>
+<ul>
+<li>Symbolization techniques with QGIS</li>
+</ul>
+</section>
+<section id="assignment-2" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-2">Assignment:</h4>
+<ul>
+<li>Points features &amp; symbolization strategies</li>
+</ul>
+</section>
+</section>
+<section id="class-5-thematic-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="class-5-thematic-mapping">Class 5 | Thematic Mapping</h3>
+<section id="lecture-3" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-3">Lecture:</h4>
+<ul>
+<li>Thematic Mapping</li>
+<li>Data types &amp; sources</li>
+<li>Demographic Data &amp; Maps</li>
+<li>Choropleth mapping</li>
+</ul>
+</section>
+<section id="demonstration-lab-3" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-3">Demonstration Lab:</h4>
+<ul>
+<li>Displaying Data via Classification Schemes</li>
+<li>Histograms</li>
+<li>Spatial &amp; Table Joins</li>
+<li>Cartographic thematic design</li>
+<li>Choropleth Mapping</li>
+</ul>
+</section>
+<section id="assignment-3" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-3">Assignment:</h4>
+<ul>
+<li>Thematic maps for US Census Datasets</li>
+</ul>
+</section>
+</section>
+<section id="class-6-introduction-to-the-raster-data-model" class="level3">
+<h3 class="anchored" data-anchor-id="class-6-introduction-to-the-raster-data-model">Class 6 | Introduction to the Raster Data Model</h3>
+<section id="lecture-4" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-4">Lecture:</h4>
+<ul>
+<li>Introduction to Raster Data</li>
+</ul>
+</section>
+<section id="demonstration-lab-4" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-4">Demonstration Lab:</h4>
+<ul>
+<li>Raster data types, manipulation and output</li>
+</ul>
+</section>
+<section id="assignment-4" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-4">Assignment:</h4>
+<ul>
+<li>Mapping with Raster data</li>
+</ul>
+</section>
+</section>
+<section id="class-7-map-projections-intro-to-openstreetmap-osm-data" class="level3">
+<h3 class="anchored" data-anchor-id="class-7-map-projections-intro-to-openstreetmap-osm-data">Class 7 | Map Projections + Intro to OpenStreetMap (OSM) data</h3>
+<section id="lecture-5" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-5">Lecture:</h4>
+<ul>
+<li>Map projections</li>
+<li>Coordinate systems</li>
+<li>Geodetic datums</li>
+</ul>
+</section>
+<section id="demonstration-lab-5" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-5">Demonstration Lab:</h4>
+<ul>
+<li>Managing &amp; transforming projections &amp; coordinate systems in QGIS</li>
+</ul>
+</section>
+<section id="assignment-5" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-5">Assignment:</h4>
+<ul>
+<li>Mapping in the UTM system; advantages of planar units in GIS</li>
+<li>Solving common map projection problems</li>
+</ul>
+</section>
+</section>
+<section id="class-8-spatial-analysis-i---geoprocessing-within-the-vector-model" class="level3">
+<h3 class="anchored" data-anchor-id="class-8-spatial-analysis-i---geoprocessing-within-the-vector-model">Class 8 | Spatial Analysis I - Geoprocessing within the Vector Model</h3>
+<section id="lecture-6" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-6">Lecture:</h4>
+<ul>
+<li>Introduction to Spatial Analysis - Vector Model</li>
+</ul>
+</section>
+<section id="demonstration-lab-6" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-6">Demonstration Lab:</h4>
+<ul>
+<li>Selection Types - Selections by Attributes vs Selections by Location</li>
+<li>Introduction to <code>SQL</code></li>
+<li>Feature proximity, overlay &amp; extraction operations</li>
+<li>Classifying spatial data via spatial operations</li>
+<li>Spatial Interpolation</li>
+<li>Geographic Apportionment</li>
+<li>Summarize and aggregate data.</li>
+<li>Calculate Statistics</li>
+</ul>
+</section>
+<section id="assignment-6" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-6">Assignment:</h4>
+<ul>
+<li>Spatial Analysis Map - Analysis Case Study- Kosovo landmines and unexploded ordnance</li>
+</ul>
+</section>
+</section>
+<section id="class-9-spatial-analysis-ii---geoprocessing-within-the-raster-model" class="level3">
+<h3 class="anchored" data-anchor-id="class-9-spatial-analysis-ii---geoprocessing-within-the-raster-model">Class 9 | Spatial Analysis II - Geoprocessing within the Raster Model</h3>
+<section id="lecture-7" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-7">Lecture:</h4>
+<ul>
+<li><p>Introduction to Spatial Analysis - Raster Model</p></li>
+<li><p>Multi-criteria suitability analysis</p></li>
+<li><p>Site selection</p></li>
+</ul>
+</section>
+<section id="demonstration-lab-7" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-7">Demonstration Lab:</h4>
+<ul>
+<li>Mapping and assessing suitability</li>
+<li>Multi-criteria suitability analysis</li>
+<li>Site selection</li>
+<li>Map Algebra</li>
+<li>Raster Calculator</li>
+</ul>
+</section>
+<section id="assignment-7" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-7">Assignment:</h4>
+<ul>
+<li>Multi-criteria suitability for site selection - Northeastern Indian state of Assam</li>
+</ul>
+</section>
+</section>
+<section id="class-10-mapping-vulnerability" class="level3">
+<h3 class="anchored" data-anchor-id="class-10-mapping-vulnerability">Class 10 | Mapping Vulnerability</h3>
+<section id="lecture-8" class="level4">
+<h4 class="anchored" data-anchor-id="lecture-8">Lecture:</h4>
+<ul>
+<li>Mapping vulnerability model</li>
+</ul>
+</section>
+<section id="demonstration-lab-8" class="level4">
+<h4 class="anchored" data-anchor-id="demonstration-lab-8">Demonstration Lab:</h4>
+<ul>
+<li>Geographic Distribution and Clustering</li>
+<li>Spatial Interpolation</li>
+<li>Geographic Apportionment</li>
+<li>Summarize and aggregate data.</li>
+<li>Calculate Statistics</li>
+</ul>
+</section>
+<section id="assignment-8" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-8">Assignment:</h4>
+<ul>
+<li>Mapping and assessing risk &amp; vulnerable populations - National Tornado Vulnerability</li>
+</ul>
+</section>
+</section>
+<section id="class-11-remote-sensing-for-urban-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="class-11-remote-sensing-for-urban-analysis">Class 11 | Remote Sensing for Urban Analysis</h3>
+<section id="lecture-9" class="level5">
+<h5 class="anchored" data-anchor-id="lecture-9">Lecture:</h5>
+<ul>
+<li>Remote Sensing (RS) Technology for Urban Analysis</li>
+</ul>
+</section>
+<section id="lab" class="level4">
+<h4 class="anchored" data-anchor-id="lab">Lab:</h4>
+<ul>
+<li>Displaying &amp; manipulating multi-band rasters</li>
+<li>Working with single-band, classified rasters</li>
+<li>Land cover data</li>
+<li>Categorical raster data manipulation</li>
+<li>Introduction to the Landsat Analysis-Ready Dataset</li>
+</ul>
+</section>
+<section id="assignment-9" class="level4">
+<h4 class="anchored" data-anchor-id="assignment-9">Assignment:</h4>
+<ul>
+<li>RS Indices for Urban Analysis</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="required-recommended-reading---weekly-quizzes" class="level2">
+<h2 class="anchored" data-anchor-id="required-recommended-reading---weekly-quizzes">Required &amp; Recommended Reading - Weekly Quizzes</h2>
+<p>Starting Class 3, there will be a short quiz that will open on the <em>day of</em> each weekly meeting. The quiz is designed to cover technical terminology and readings assigned the previous week. The course readings will be selected each week from the required course text <em>Essentials of Geographic Information Systems</em>. Students are responsible to complete each week’s readings and be ready for the quiz at the start of each week (quizzes will stay open throughout the day each Tuesday, and conclude each Tuesday at 8pm). A quiz code will be provided on a weekly basis to access each quiz. This quiz code will be located on each week’s agenda posted each Tuesday at 7am.</p>
+<section id="materials" class="level3">
+<h3 class="anchored" data-anchor-id="materials">Materials</h3>
+<p>During each class session, reading materials, GIS files and your notes can be on your local computer; materials and course access will happen generally online via Canvas and Slack. For moving GIS files and research materials back and forth between machines, a USB drive is ideal. Further, online storage such as <a href="https://www.box.com/home">Box</a>, <a href="https://www.dropbox.com/home">Dropbox</a>, <a href="https://www.google.com/drive/">Google Drive</a> and <a href="https://www.amazon.com/clouddrive">Amazon Cloud Drive</a> is encouraged. Course lecture topics, readings and in-class exercise data will be available via the online course management location (Canvas); however, each student will be required to organize and maintain their own GIS data files, especially pertaining to the final project. These files should be consistently backed up in multiple locations, ensuring redundancy and security.</p>
+</section>
+</section>
+<section id="evaluation-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-and-grading">Evaluation and Grading</h2>
+<p><br></p>
+<table class="table">
+<colgroup>
+<col style="width: 46%">
+<col style="width: 53%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Course Component</th>
+<th style="text-align: center;">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Weekly GIS technical assignments</td>
+<td style="text-align: center;">50%</td>
+</tr>
+<tr class="even">
+<td>Independent research, data development &amp; project scope (Final Project)</td>
+<td style="text-align: center;">10%</td>
+</tr>
+<tr class="odd">
+<td>Final GIS project presentation (Final Project)</td>
+<td style="text-align: center;">25%</td>
+</tr>
+<tr class="even">
+<td>Participation &amp; weekly quizzes</td>
+<td style="text-align: center;">15%</td>
+</tr>
+<tr class="odd">
+<td>Total</td>
+<td style="text-align: center;">100%</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="grading-categories" class="level2">
+<h2 class="anchored" data-anchor-id="grading-categories">Grading Categories</h2>
+<ul>
+<li><p><strong>A/A-</strong> Students receiving an “A” grade show exceptional mastery over course material, and produce exceptionally engaging and unique final GIS projects. Student excels in all aspects of the weekly assignments and participates very actively in class discussions and activities. Throughout the class, students receiving A’s will consistently accomplish each week’s goals while further establishing their own interests and approaches to particular technical and research data issues in both the weekly course content and final GIS project.</p></li>
+<li><p><strong>B/B+</strong> Unlike C/C+ average work, students receiving a “B” grade show definitive engagement with all aspects of the class, complete assignments in a timely fashion, and produce an engaging final GIS project. Student offers own approach to class readings, and participates well with in-class exercises and activities. Students are engaged with instructor through questioning and feedback over course material to ensure course mastery.</p></li>
+<li><p><strong>C/C+</strong> Average work that shows some success in engaging with course concepts but no particular distinction or unique approaches to data collection, research concepts and final presentation. Student shows some participation with class discussion and exercises, but not a significant interest level to achieve real mastery over course concepts and material.</p></li>
+<li><p><strong>F</strong> An “F” grade will be given if partial required work is submitted; some classes are missed completely and work is not completed on a make-up basis. Weekly exercises are either completed late or not at all. General class concepts are not translated into the final GIS project. Limited participation in both in-class sessions and out-of-class research requirements.</p></li>
+<li><p><strong>I</strong> A grade of I (Incomplete), signifying a temporary deferment of a regular grade, may be assigned when coursework has been delayed at the end of the semester for unavoidable and legitimate reasons. Incomplete grades are given only with the written approval of the instructor and the program director. The Request for an Incomplete Grade form must be filled out by the student and instructor prior to the end of the semester. This grade option is only available for very uncommon, unforeseeable complicating issues as outlined in the student handbook. For undergraduate students, if a grade of incomplete is approved, outstanding work must be submitted by the seventh week of the following semester. Otherwise, a grade of I will automatically convert to a permanent unofficial withdrawal (WF) after a period of four weeks. For graduate students, the maximum deadline for completion of an incomplete is one year, though a shorter period may be imposed at the discretion of the instructor.</p></li>
+</ul>
+</section>
+<section id="course-policies" class="level2">
+<h2 class="anchored" data-anchor-id="course-policies">Course Policies</h2>
+<ul>
+<li><p><strong>Email &amp; Course assignments:</strong> Students are required to maintain and check their TNS email account on a regular basis, except over official breaks. There will be a <a href="https://slack.com/">Slack</a> group established for the course; this will be the official channel for course communication, especially technical issues. For more personal/private issues, students can email instructor directly at the following address - <a href="mailto:mettss@newschool.edu">email</a>. The course management software (Canvas) should be utilized during the week to accomplish each week’s assignment. Students are required to check in via the online course site to gain needed course materials and submit completed assignments. Students should be working through class assignments early in the week to be certain they understand the technical challenges of each assignment; and finalize these assignments prior to assignment deadlines, usually midnight each consecutive Sunday. Students that practice and prepare early in the week can avoid the stress that comes with a looming assignment deadline late in the week.</p></li>
+<li><p><strong>Academic Honesty:</strong> As part of the larger New School academic policy, plagiarism and cheating are unacceptable. Using other’s ideas, analysis and projects as one’s own is unacceptable. Being positively influenced by a methodology or past project is one thing; taking the details of that work and claiming them as your own is another. The university’s academic policy applies to both GIS projects and any theory and narrative responses that you will author throughout the course.</p></li>
+<li><p><strong>Adaptations:</strong> If you need course adaptations or accommodations because of a disability, emergency medical information to share with me, or if you need special arrangements, please bring it to my attention as soon as possible.</p></li>
+<li><p><strong>Attendance:</strong> Class attendance is mandatory. Students are expected to participate in each class session. Importantly, sequential coursework will be completed in a timely manner and uploaded by due dates per assignment/deliverable. As this course is sequential and depends heavily on weekly skills development to proceed to following weeks, any absences are consequential; and multiple absences quickly risk success in the course. If a students knows in advance of an absence, its critical to notify the faculty for arrangements. Approximately three absences will put a student at clear risk of a failing grade. It is your responsibility to make up work missed due to an absence. If you know in advance that you will miss a class you should notify faculty as a courtesy in advance. Your third absence will put you at risk of a failing grade in the course, as stated in the <a href="http://www.newschool.edu/forms/ss_student_handbook.pdf">Student Handbook</a>.</p></li>
+<li><p><strong>Electronic Devices:</strong> The use of electronic devices (phones, tablets, laptops, cameras, etc.) is permitted when the device is being used in relation to the course’s work, and is allowed in the weekly synchronous meeting as long as it does not interrupt any other students or the instructor.</p></li>
+<li><p><strong>Use of AI Tools (ChatGPT, DALL-E, Midjourney, etc):</strong> Because this course builds on many existing ideas, facts and systems, ChatGPT can be a helpful tool to use for querying averaged or compiled responses. For this reason, you are allowed to use it in research or brainstorming. It is important that the written work required by the course is authored by you alone. Further, you will need to provide citations for research, so AI tools are only a first pass, not an easy solution. Lastly, Generative AI does pose increased carbon emissions, as both the training and response require extra computing power. Be mindful in using it.</p></li>
+<li><p><strong>Intellectual Property Rights:</strong> The New School (the “university”) seeks to encourage creativity and invention among its faculty members and students. In doing so, the University affirms its traditional commitment to the personal ownership by its faculty members and students of Intellectual Property Rights in works they create. The complete policy governing Intellectual Property Rights may be seen on the university website, on the Provost’s page.</p></li>
+<li><p><strong>Student Course Ratings (Course Evaluations):</strong> During the last two weeks of the semester, students are asked to provide feedback for each of their courses through an online survey. They cannot view grades until providing feedback or officially declining to do so. Course evaluations are a vital space where students can speak about the learning experience. It is an important process which provides valuable data about the successful delivery and support of a course or topic to both the faculty and administrators. Instructors rely on course rating surveys for feedback on the course and teaching methods, so they can understand what aspects of the class are most successful in teaching students, and what aspects might be improved or changed in future. Without this information, it can be difficult for an instructor to reflect upon and improve teaching methods and course design. In addition, program/department chairs and other administrators review course surveys. Over the history of this particular course, student feedback has been fundamental to adapting the course on a semester basis to be suit needs and preferences of students.</p></li>
+</ul>
+</section>
+<section id="university-resources" class="level2">
+<h2 class="anchored" data-anchor-id="university-resources">University Resources</h2>
+<p>The university provides many resources to help students achieve academic and creative excellence. These resources include:</p>
+<ul>
+<li><p><strong>The University (and associated) Libraries</strong></p></li>
+<li><p><strong>The University Learning Center</strong></p></li>
+<li><p><strong>University Disabilities Services:</strong> In keeping with the university’s policy of providing equal access for students with disabilities, any student with a disability who needs academic accommodations must contact SDS. There are several ways for students to contact the office: via email at StudentDisability@newschool.edu, through the Starfish service catalog, or by calling the office at 212.229.5626. A self-ID form can also be completed on the SDS webpage at www.newschool.edu/student-disability-services. Once you contact the office, SDS staff will arrange an intake appointment to discuss your concerns and, if appropriate, provide you with accommodation notices to give to me. Please note that faculty will not work unilaterally with students to provide accommodations. If you inform me of a disability but do not provide any official notification, I must refer you to SDS.</p></li>
+<li><p><strong>Health and Wellness:</strong> Additional services and support available to New School students.</p></li>
+<li><p><strong>IT, Adobe and Printing Services IT Central:</strong> For help with IT needs you can stop by IT - Central at 72 Fifth Avenue, Lower Level 8:00 am - 9:00pm (Mon - Thurs); 8:00 am - 7:00pm (Friday); 9:00am - 5:00pm (Saturday) IT Pop Up Desk Each semester IT holds IT Pop Up Desk events around campus. Scheduled events are updated on the TechTalk blog (techtalk.newschool.edu) and will be advertised on Digital Easels around campus. If you are unable to come to IT Central, this is a great option to get assistance throughout campus.</p></li>
+<li><p><strong>Adobe Creative Suite:</strong> Each degree and credit seeking student is entitled to subscriptions for the full Adobe Creative Cloud suite of applications. All home-use subscriptions provided by The New School are equipped with 20GB of cloud storage.</p></li>
+<li><p><strong>Printing:</strong> You may print in Labs and Classrooms using your NetID username and password, which is also your print account. There are different printer formats available, including black and white, color, plotter and photo plotter printing.</p></li>
+<li><p><strong>Food and housing security:</strong> Any student who has difficulty affording groceries or accessing sufficient food to eat every day, or who lacks a safe and stable place to live, and believes this may affect their performance in the course, is urged to contact Student Support and Crisis Management for support and access to resources (see the contact information and hours directly below under Student Support and Crisis Management)</p></li>
+<li><p><strong>Student Support and Crisis Management (SSCM):</strong> SSCM works with students who are struggling with non-academic challenges, distressing experiences, and crisis situations. Contact SSCM staff for assistance in navigating challenges and connecting to on-and off-campus services and resources, including for emergency financial, housing, food, or other needs.</p></li>
+<li><p><strong>Student Financial Services:</strong> SFS can help you manage your education costs. They welcome students and family inquiries about Financial Aid eligibility and financing.</p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="syllabus_fall25_NINT5380_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

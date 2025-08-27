@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-08-27">
+
+<title>Class 1 Lecture Demonstration Lab: Introduction to Spatial Data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="c1_lecture_demo_files/libs/clipboard/clipboard.min.js"></script>
+<script src="c1_lecture_demo_files/libs/quarto-html/quarto.js"></script>
+<script src="c1_lecture_demo_files/libs/quarto-html/popper.min.js"></script>
+<script src="c1_lecture_demo_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="c1_lecture_demo_files/libs/quarto-html/anchor.min.js"></script>
+<link href="c1_lecture_demo_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="c1_lecture_demo_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="c1_lecture_demo_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="c1_lecture_demo_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="c1_lecture_demo_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="c1_lecture_demo_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a></li>
+  <li><a href="#part-i-spatial-data" id="toc-part-i-spatial-data" class="nav-link" data-scroll-target="#part-i-spatial-data">Part I: Spatial Data</a></li>
+  <li><a href="#part-ii-recreating-john-snows-broad-street-pump-map" id="toc-part-ii-recreating-john-snows-broad-street-pump-map" class="nav-link" data-scroll-target="#part-ii-recreating-john-snows-broad-street-pump-map">Part II: Recreating John Snow’s ‘Broad Street Pump’ Map</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#step-1-load-data" id="toc-step-1-load-data" class="nav-link" data-scroll-target="#step-1-load-data">Step 1: Load Data</a></li>
+  <li><a href="#step-2-create-thiessen-polygons" id="toc-step-2-create-thiessen-polygons" class="nav-link" data-scroll-target="#step-2-create-thiessen-polygons">Step 2: Create Thiessen Polygons</a></li>
+  <li><a href="#step-3-report-cholera-deaths-within-each-pump-voronoi-polygon" id="toc-step-3-report-cholera-deaths-within-each-pump-voronoi-polygon" class="nav-link" data-scroll-target="#step-3-report-cholera-deaths-within-each-pump-voronoi-polygon">Step 3: Report Cholera Deaths within each pump Voronoi polygon</a></li>
+  <li><a href="#concluding-remarks" id="toc-concluding-remarks" class="nav-link" data-scroll-target="#concluding-remarks">Concluding Remarks</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References:</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Class 1 Lecture Demonstration Lab: Introduction to Spatial Data</h1>
+<p class="subtitle lead">Fall 2025 | <a href="https://courses.newschool.edu/courses/NINT5380">NINT5380 - CRN2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 27, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="preamble" class="level2">
+<h2 class="anchored" data-anchor-id="preamble">Preamble</h2>
+<p>In this first demonstration lab, we will explore spatial data in two parts: the first will be an exercise we complete the following week, but start this week; and the second will be an exploration of John Snow’s original <strong>Cholera Pump Data</strong> now in modern, digital format. This second exploration will also be featured in the first week’s lecture as the ‘first GIS’; here the spatial relationship of London’s Victorian Era water pumps to household deaths is uncovered.</p>
+</section>
+<section id="part-i-spatial-data" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-spatial-data">Part I: Spatial Data</h2>
+<p>A large part of this introductory course is understanding and utilizing two primary spatial data models: the vector model and the raster model. Here we will look at a primary vector feature type - the ‘simple’ point in a particular format known as <a href="https://en.wikipedia.org/wiki/GeoJSON">GeoJSON</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/geojson_format.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>GeoJSON Format for a simple point feature</em></figcaption><p></p>
+</figure>
+</div>
+<section id="step-1" class="level4">
+<h4 class="anchored" data-anchor-id="step-1">Step 1:</h4>
+<p>Together we will navigate via an internet browser to <a href="https://geojson.io/#map=2/0/20">geojson.io</a>. Position the online map to your current neighborhood and place a point near were you live. It can be as precise as you would like it to be: building rooftop for high precision; a nearby intersection for less precision.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/geojson_pt.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Example GeoJSON Point Creation near Union Square</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="step-2" class="level4">
+<h4 class="anchored" data-anchor-id="step-2">Step 2:</h4>
+<p>Next, download the resulting file as <em>map.geojson</em> using the <code>Save</code> option for format type <em>GeoJSON</em>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/geojson_save.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Example GeoJSON Point Save and Download to local machine</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="step-3" class="level4">
+<h4 class="anchored" data-anchor-id="step-3">Step 3:</h4>
+<p>While this download file with the file extension <code>.geojson</code> can be opened in a text editor certainly, we cannot ‘see it’ on a base map until we utilize a ‘spatially aware’ software platform, i.e.&nbsp;some type of Geographic Information System (GIS). Here is where <a href="https://www.qgis.org/">QGIS</a> comes in - the software we will utilize throughout this course.</p>
+<p>Open <a href="https://www.qgis.org/">QGIS</a> from either your own machine in which you have installed the software, and/or a lab computer in which QGIS is previously installed. In the lab computers, you can access QGIS from the <code>start menu &gt; statistic and research folder &gt; QGIS</code>.</p>
+<p>Once open, we will utilize the <strong>Data Source Manager</strong> to point first to the <code>map.geojson</code> file; import the file; and finally place the points feature onto a basemap for context.</p>
+</section>
+<section id="step-4" class="level4">
+<h4 class="anchored" data-anchor-id="step-4">Step 4:</h4>
+<p>To access the <strong>Data Source Manager</strong>, find the icon at the upper left of the QGIS Interface that looks like several papers stacked atop each other:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/DSM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Access Data Source Manager</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, open the tool, and point to the <em>Vector Layer</em> option then <em>source</em> the layer to it current position on the local machine; finally click the <code>add</code> button in the lower right of the dialog box.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/vector_layer.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Vector Layer Option</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/point.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Point added to the map</em></figcaption><p></p>
+</figure>
+</div>
+<p>As is, this mapped point is not particularly useful as we have no context, i.e.&nbsp;a basemap. There are many ways to incorporate basemaps into QGIS. In this example, we will use what is known as a QGIS ‘Plugin’ utility. These are extensions of GIS functionality provided typically by 3rd-party providers/developers as an open source utility for the QGIS community to use at will.</p>
+<p>To start, we will access the top menu for <em>Plugins</em> and search for <a href="https://plugins.qgis.org/plugins/quick_map_services/">QuickMapServices</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/QMS.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QuickMapServices</figcaption><p></p>
+</figure>
+</div>
+<p>Once installed, you will see new ‘globe’ icons in the top toolbar location. Click on the globe icon in the middle with the plus sign, and point to the default OpenStreetMap (OSM) option:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/OSM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QuickMapServices &gt; OSM &gt; OSM Standard Basemap</figcaption><p></p>
+</figure>
+</div>
+<p>Once completed, we can see a context basemap that helps us contextualize our newly created <em>GeoJSON</em> points feature through the OSM Standard basemap product:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/OSM_complete.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QuickMapServices &gt; OSM &gt; OSM Standard Basemap + GeoJSON point feature</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This completes the in-class Part #1. To finish, make sure to successfully log into our <a href="https://join.slack.com/t/gisnint5380-fall2025/shared_invite/zt-3aiop61nn-TA3QRGsbgAxUIliQbhJQ6Q">SLACK team</a> for the semester, and in the <code>#introductions</code> channel, simply attach your point and send. I will collect everyone’s point and share it with the class next week so that we can see all our locations on one map. Remember, if you would like your point to be somewhat anonymous, you can ‘generalize’ that location by placing it close to, but not directly on, your actual building/home location. You can also simple leave the name of the feature as it is - <code>map.geojson</code> - which is anonymous in name also.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="part-ii-recreating-john-snows-broad-street-pump-map" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-recreating-john-snows-broad-street-pump-map">Part II: Recreating John Snow’s ‘Broad Street Pump’ Map</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/U1jtAIn.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Original map by John Snow showing the clusters of cholera cases in the London epidemic of 1854, drawn and lithographed by Charles Cheffins.</figcaption><p></p>
+</figure>
+</div>
+<section id="step-1-1" class="level4">
+<h4 class="anchored" data-anchor-id="step-1-1">Step 1:</h4>
+<p>We will first download the recreation data of John Snow’s ‘Broad Street Pump Map’ and run a series of GIS analysis tasks to derive insight and produce quantitative results about both the location of the pumps and the resulting deaths from the <code>Broad Street Pump</code> itself.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Digitized Pumps and Deaths.</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>The data for this demonstration lab comes from the QGIS project located <a href="https://docs.qgis.org/2.18/en/docs/training_manual/processing/john_snow.html">HERE</a>.</p>
+<p>To start, <a href="https://www.dropbox.com/scl/fi/ip85bxms5l9ypctxnuhbi/demo_1-partII-JS_data.zip?rlkey=iv9i9p3ryahpo2oandc3qqsqf&amp;st=kn6mx4ab&amp;dl=1">directly download</a> a prepared, compressed directory which includes all necessary data as well as a QGIS <code>.qgs</code> project file.</p>
+<ul>
+<li><a href="https://www.dropbox.com/scl/fi/ip85bxms5l9ypctxnuhbi/demo_1-partII-JS_data.zip?rlkey=iv9i9p3ryahpo2oandc3qqsqf&amp;st=kn6mx4ab&amp;dl=1">Direct Download</a></li>
+</ul>
+<p>Once complete, extract the zipped directory and open the directory folder. The results - including the project <code>.qgs</code> - should appear as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Directory Folder Uncompressed.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="step-1-load-data" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-load-data">Step 1: Load Data</h2>
+<ul>
+<li>Navigate to the directory folder <code>demo_1-partII-JS_data</code> then <em>double-click</em> the <code>demo_part2-john-snow.qgs</code> file. This will prompt QGIS to load the project on the machine. The <em>Table of Contents</em> should feature the following 2 vector layers and 1 raster layer (<code>.tif</code>):</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Project Vector Files.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Data Frame View of Project Vector Files.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="step-2-create-thiessen-polygons" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-create-thiessen-polygons">Step 2: Create Thiessen Polygons</h2>
+<p>Thiessen polygon boundaries define the area closest to each feature relative to all other features. Thiessen polygons are generated from a set of three or more features. In this case, our features will be the <em>Pumps</em> points.</p>
+<p>Thiessen polygons are also referred to as spatial monopoly or Voronoi diagrams. This type of analysis assumes that there are clusters of features that are distinct within the larger dataset of features; again in this case, the <em>Pumps</em> points are our input features.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This type of analysis needs planar units, not degrees, for valid output results. We will touch on this issue in class 2, and more in depth in class 6 - Map Projections. For now, note that the project utlizes the <code>British National Grid</code> with a linear unit of <code>meter</code>, thus we don’t need to adopt another map projection in order to proceed with analysis.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Project Map Projection = British National Grid.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Project Map Projection = British National Grid utilizes a planar unit of <code>meter</code>.</figcaption><p></p>
+</figure>
+</div>
+<p>QGIS provides many analysis tools easily accessible, often from the <strong>Processing Toolbox</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/9.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Top Tool Bar with red ‘toolbox’.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Search on <code>voronoi</code>.</figcaption><p></p>
+</figure>
+</div>
+<p>Utilizing the <code>Voronoi polygons</code> tool, we will input the <em>Pumps</em> and output to a temporary file location:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/8.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>Voronoi polygons</code> Analysis Tool Dialog Box within the Processing Toolbox.</figcaption><p></p>
+</figure>
+</div>
+<p>The results of the analysis tool should be a new polygon feature that represents the ‘clusters’ or ‘neighborhoods’ of distinct pump locations. If we open the attribute table of the new polygon feature, we can ascertain which polygon features the predominance of death locations via the <code>ID</code> attribute:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/20.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>Voronoi polygons</code> result.</figcaption><p></p>
+</figure>
+</div>
+<p>The resulting Voronoi Polygons tell us the extent of distance, or travel, for each pump <em>inside</em> its most ‘efficient’ neighborhood. This gives us an idea of how far (euclidean distance) one would travel efficiently within one polygon before crossing into another polygon where another pump would be most efficient to our travel.</p>
+<p>What this spatial analysis does NOT tell us is how many deaths have occurred within each pump’s ’neighborhood, i.e.&nbsp;its Voronoi polygon. To do this analysis task, we will turn to Step 3 below.</p>
+</section>
+<section id="step-3-report-cholera-deaths-within-each-pump-voronoi-polygon" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-report-cholera-deaths-within-each-pump-voronoi-polygon">Step 3: Report Cholera Deaths within each pump Voronoi polygon</h2>
+<p>To do this next analysis step, we will utilize a common GIS tool whereby we both weight and count an attribute inside a polygon feature; in this case, we want to count deaths within each pump ‘neighborhood’.</p>
+<p>To start, we can easily see just from the mapping thus far that the Voronoi polygon for the ‘Broad Street Pump’ features a predominance of death points. We can assume that this concentration likely also contains the top aggregate count of deaths from those points within their respective Voronoi polygon. So we can test this initial exploratory assumption by the <code>count points in polygon</code> tool.</p>
+<p>Search for <code>count points in polygon</code> as we did for the previous tool. This will point to the following tool dialog box. Input <code>Cholera_Deaths</code> as the <em>Target Features</em> and utilize the <code>COUNT</code> attribute as the <em>Weight</em> and run the tool with the output as a default temporary file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/21.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>count points in polygon</code> tool.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/22.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>count points in polygon</code> Dialog Box with parameters set correctly.</figcaption><p></p>
+</figure>
+</div>
+<p>Once the tool has run, we will receive a new polygon feature dataset that now has all the original Cholera Death events aggregated to their respective Voronoi polygon:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c1_lecture_demo_files/img/23.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>count points in polygon</code> results.</figcaption><p></p>
+</figure>
+</div>
+<p>Clearly, polygon ID 1 in the example contains the predominant death count; and of course this is the <em>Broad Street Pump</em> central Voronoi polygon ‘neighborhood’.</p>
+</section>
+<section id="concluding-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="concluding-remarks">Concluding Remarks</h2>
+<p>In this first demonstration lab, we have created and imported spatial data, and created meaningful spatial analysis results from our data inputs. This is just a short introduction to the analysis capacities of GIS, QGIS in particular. The following references are good resources to learn more about QGIS generally, and the John Snow historical mapping and its recreation in modern GIS.</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References:</h2>
+<ul>
+<li><a href="https://docs.qgis.org/3.28/en/docs/user_manual/index.html">QGIS User Guide</a></li>
+<li><a href="https://geodacenter.github.io/data-and-lab/snow4/">GeoDa Data and Lab</a></li>
+<li><a href="https://github.com/epibayes/john-snow-data">Github repository for the John Snow Data</a></li>
+<li><a href="https://www.rcseng.ac.uk/library-and-publications/library/blog/mapping-disease-john-snow-and-cholera/">Mapping Disease: John Snow and Cholera</a></li>
+<li><a href="https://www.maps.com/snow-mistake-correcting-myths-in-the-mapping-of-cholera/">Snow Mistake: Correcting Myths in the Mapping of Cholera</a></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="c1_lecture_demo_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

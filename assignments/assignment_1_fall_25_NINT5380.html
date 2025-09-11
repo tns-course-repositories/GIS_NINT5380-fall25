@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-09-11">
+
+<title>Class 2 Assignment 1: QGIS Initiation &amp; Orientation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="assignment_1_fall_25_NINT5380_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assignment_1_fall_25_NINT5380_files/libs/quarto-html/quarto.js"></script>
+<script src="assignment_1_fall_25_NINT5380_files/libs/quarto-html/popper.min.js"></script>
+<script src="assignment_1_fall_25_NINT5380_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assignment_1_fall_25_NINT5380_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assignment_1_fall_25_NINT5380_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assignment_1_fall_25_NINT5380_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assignment_1_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assignment_1_fall_25_NINT5380_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assignment_1_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="assignment_1_fall_25_NINT5380_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a></li>
+  <li><a href="#general-course-orientation-items-for-week-3-class-2" id="toc-general-course-orientation-items-for-week-3-class-2" class="nav-link" data-scroll-target="#general-course-orientation-items-for-week-3-class-2">General Course Orientation Items for Week 3 | Class 2</a></li>
+  <li><a href="#gis-qgis-orientation" id="toc-gis-qgis-orientation" class="nav-link" data-scroll-target="#gis-qgis-orientation">GIS + QGIS Orientation</a></li>
+  <li><a href="#class-1-reading" id="toc-class-1-reading" class="nav-link" data-scroll-target="#class-1-reading">Class 1 Reading:</a></li>
+  <li><a href="#assignment-data" id="toc-assignment-data" class="nav-link" data-scroll-target="#assignment-data">Assignment Data</a></li>
+  <li><a href="#assignment-i-part-i---installing-qgis" id="toc-assignment-i-part-i---installing-qgis" class="nav-link" data-scroll-target="#assignment-i-part-i---installing-qgis">Assignment I | Part I - Installing QGIS:</a></li>
+  <li><a href="#assignment-i-part-ii---file-compression-tools" id="toc-assignment-i-part-ii---file-compression-tools" class="nav-link" data-scroll-target="#assignment-i-part-ii---file-compression-tools">Assignment I | Part II - File Compression Tools:</a></li>
+  <li><a href="#assignment-i-part-iii---the-qgis-application-interface" id="toc-assignment-i-part-iii---the-qgis-application-interface" class="nav-link" data-scroll-target="#assignment-i-part-iii---the-qgis-application-interface">Assignment I | Part III - The QGIS application interface:</a></li>
+  <li><a href="#assignment-i-part-iv---producing-cartographic-output" id="toc-assignment-i-part-iv---producing-cartographic-output" class="nav-link" data-scroll-target="#assignment-i-part-iv---producing-cartographic-output">Assignment I | Part IV - Producing Cartographic Output:</a></li>
+  <li><a href="#part-v---deliverable" id="toc-part-v---deliverable" class="nav-link" data-scroll-target="#part-v---deliverable">Part V - Deliverable:</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Class 2 Assignment 1: QGIS Initiation &amp; Orientation</h1>
+<p class="subtitle lead">Spring 2025 | <a href="https://courses.newschool.edu/courses/NINT5380">NINT5380 CRN2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 11, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="preamble" class="level2">
+<h2 class="anchored" data-anchor-id="preamble">Preamble</h2>
+<p>This second week’s assignment will encompass acquiring, accessing and manipulating both QGIS software and several vector type spatial features to produce a global scale (small scale) map, exported to PDF format. The goal of this second week is to orient to the software; gain experience with the software, and begin to work with spatial features.</p>
+<p>This week’s class session and independent assignment will encompass the following concepts, which will be previewed during the <strong>Class 2</strong> group meeting Monday 09/15/25 at 8pm:</p>
+<ul>
+<li>Short history of Cartography</li>
+<li>Situate GIS within history of Cartography</li>
+<li>Core spatial concepts &amp; data types (shapefile) in GIS</li>
+<li>Core GIS terminology</li>
+<li>QGIS as robust GIS software</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before proceeding to your work on the first assignment, pause and watch the first week Lecture recording. In addition to Class 1 &amp; 2 fundamentals, both terminology and some software items are discussed.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1002297314"><img src="assignment_1_fall_25_NINT5380_files/img/v1a.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Lecture 1 Recording</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="general-course-orientation-items-for-week-3-class-2" class="level2">
+<h2 class="anchored" data-anchor-id="general-course-orientation-items-for-week-3-class-2">General Course Orientation Items for Week 3 | Class 2</h2>
+<ul>
+<li><a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/agendas/c2_agenda_fall_25_NINT5380.html">Class 2 Agenda</a></li>
+<li><a href="https://gis-nspe-tns.github.io/GIS_NINT5380_fall25/lectures/lecture.2/index.html">Class 2 Lecture 1</a></li>
+<li><a href="https://gis-nspe-tns.github.io/GIS_NINT5380_fall25/assignments/assignment_1_fall_25_NINT5380.html">Class 2 Assignment 1 (this document)</a></li>
+<li><a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/demos/c2_lecture_demo.html">Class 2 Demonstration Lab</a></li>
+</ul>
+</section>
+<section id="gis-qgis-orientation" class="level2">
+<h2 class="anchored" data-anchor-id="gis-qgis-orientation">GIS + QGIS Orientation</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Geographic_information_system">What is GIS?</a>
+<ul>
+<li>GIS stands for either Geographic Information System or Geographic Information Science. Geographic Information <strong>System</strong> typically refers to the software, like QGIS, we use to create spatial data and to investigate spatial relationships between that data. Geographic Information <strong>Science</strong> is the framework we use to ask questions about the spatial relationship between data.</li>
+</ul></li>
+<li><a href="https://qgis.org">What is QGIS?</a>
+<ul>
+<li>From the <a href="https://qgis.org">QGIS</a> website, “QGIS is a user friendly Open Source Geographic Information System (GIS) licensed under the GNU General Public License. QGIS is an official project of the Open Source Geospatial Foundation (OSGeo). It runs on Linux, Unix, Mac OSX, Windows and Android and supports numerous vector, raster, and database formats and functionalities.”</li>
+<li><strong>QGIS is a desktop GIS.</strong> That means you get a program that opens up on your computer as a window with buttons you can click, forms you can fill out to do tasks, and it’s generally a visual interactive experience (as opposed to commandline programming in a terminal). Often this kind of interface is called a Graphical User Interface or GUI (often pronounced “gooey”) for short.</li>
+<li><strong>QGIS is open source.</strong> That means the code is available for you to read or modify, should you choose to, but you don’t have to. What’s the advantage of this? It means anyone can make fixes if something is wrong or anyone can add new features. You don’t have to wait for a paid developer to add something.<br>
+</li>
+<li><strong>QGIS is an official project of the <a href="https://www.osgeo.org/">Open Source Geospatial Foundation (OSGeo)</a>.</strong> “The Open Source Geospatial Foundation (OSGeo) is a not-for-profit organization whose mission is to foster global adoption of open geospatial technology by being an inclusive software foundation devoted to an open philosophy and participatory community driven development.” OSGeo supports and assists open source geospatial projects providing infrastructure and organization as well as conferences and means of communication with the broader public and education.</li>
+<li><strong>Advantages of QGIS:</strong>
+<ul>
+<li>It’s a robust, powerful desktop GIS</li>
+<li>Runs on all major platorms: Mac, Linux, &amp; Windows</li>
+<li>Free of charge, all access (no paid add-ons or extensions)</li>
+<li>Frequent updates &amp; bug fixes</li>
+<li>Responsive, enthusiastic community</li>
+<li>Integration with other geospatial tools &amp; programming languages like R, Python, &amp; PostGIS</li>
+<li>Access to analysis tools from other established software like GRASS and SAGA</li>
+<li>Native access to open data formats like geoJSON &amp; GeoPackage</li>
+<li>Comes in a <a href="https://www.qgis.org/en/site/getinvolved/translate.html">more than 40 languages</a>, making it easi.e.r to work with a larger vari.e.ty of colaborators</li>
+<li>Growing use by local, state, federal, and international governments</li>
+<li>GIS concepts found in QGIS are similar, if not the same, as other GIS software packages including <a href="https://www.esri.com/en-us/home">ESRI</a>.</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><img src="https://i.imgur.com/pflD3TK.png" class="img-fluid" alt="QGIS Project"> <em>Source: <a href="https://qgis.org/en/site/">QGIS Project</a></em></p>
+</section>
+<section id="class-1-reading" class="level2">
+<h2 class="anchored" data-anchor-id="class-1-reading">Class 1 Reading:</h2>
+<ul>
+<li><p>Typically, each class will feature reading(s) from the course textbook <a href="https://students.flatworldknowledge.com/engage/courses/2614254"><em>Essentials of Geographic Information Systems</em></a>. This first week will be an exception: the introductory chapter of the recommended (not required) <em>Terra Incognita: 100 Maps to Survive the Next 100 Years</em> is assigned.</p></li>
+<li><p>Access this first chapter online via <a href="https://weekly-reading-research.s3.amazonaws.com/chapter.1.terra.incognita.pdf">THIS LINK</a></p></li>
+</ul>
+</section>
+<section id="assignment-data" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-data">Assignment Data</h2>
+<ul>
+<li><strong><a href="https://weekly-materials.s3-us-west-1.amazonaws.com/c1.assignment.data/c1.natural.earth.data.zip">Assignment 1 Data Download</a></strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/data.preview.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Assignment 1 Data Preview</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the preview image above, note the <code>.shp</code> files; these are the primary files that you will point QGIS to when you load the feature. Many of the other files in the folders are known as ‘side-car’ files or ‘helper’ files; they do attendant tasks, but are not necessarily vital to the geographic feature itself.</p>
+</div>
+</div>
+</section>
+<section id="assignment-i-part-i---installing-qgis" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-i-part-i---installing-qgis">Assignment I | Part I - Installing QGIS:</h2>
+<ul>
+<li>The obvious <em>first step</em> of using a GIS software is to either install it or access an online platform. While there are many online GIS utilities, database frameworks and platforms online, generally robust GIS analysis requires a full package located on a hard drive. In this way, geospatial data operations - many that are significantly memory intensive - can run efficiently. For our purposes, the following instructions are given for both the Mac and Windows operating systems. Both assume a relatively <em>modern, i.e.&nbsp;recent</em> operating system and sufficient disk space.</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lab computers for this course will not run into memory issues. Your own machine, however, is dependent on its specs - more disk space and more RAM and a better processor is always going to optimize, speeding up your workflow.</p>
+</div>
+</div>
+<section id="qgis-mac-install-process" class="level4">
+<h4 class="anchored" data-anchor-id="qgis-mac-install-process">QGIS Mac Install Process:</h4>
+<ul>
+<li><p><strong>Step 1</strong>: Navigate to <a href="https://qgis.org/en/site/">QGIS landing page</a>:</p></li>
+<li><p><code>https://qgis.org/en/site/</code></p></li>
+<li><p><code>https://qgis.org/download/</code></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/BRAT1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS mac OS Download Interface</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>To start, note that the Long Term Release (LTR) is currently <code>3.40.10 'Bratislava' Long Term Release (LTR)</code>; this is the version that we will be using for the Fall 2025 semester. This is <strong>1</strong> above.</p></li>
+<li><p>Next, click the button <strong>2</strong> seen above; this will initiate a direct download of the disk image for the LTR package. Once complete, you will see the disk image as follows; you can <em>right&gt;click</em> this disk image and it will unpack, asking for a license agreement along the way.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/BRAT2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS macOS Disk Image</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Once the application has been unpacked, you will be prompted with an image to move the QGIS application to the the <code>Applications</code> folder:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/BRAT3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS application &gt; Applications Folder</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>You can then delete the original <code>qgis-macos-ltr.dmg</code> file as it is now just taking up disk space following the application install.</p></li>
+<li><p>Finally, note in <strong>3</strong> above the security notice specific to macOS alone. This can be frustrating and alarming on the first launch of the software. However, the fix is not difficult; you need to prompt macOS to see the software as a security exception, and allow it to open separate of the standard security protocol. Once this is done, you will not have to do this again on the current machine. This is a ‘one-and-done’ action.</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are two release versions- the Long Term Release (LTR) and the most recent current version. For this course, either version will work well. The upside of the current version is that you have the very latest features; however there may be bugs that appear along the way. The advantage of the LTR version is that its the most stable major release. Weekly instruction and tutorials will be demonstrated using the LTR version of the 3.x platform of QGIS, Fall 2025 this release is <code>3.40.10 'Bratislava' Long Term Release (LTR)</code>. Note that this release may be slightly ahead of the campus lab installed version; typically that is not a complication.</p>
+</div>
+</div>
+</section>
+<section id="qgis-windows-install-process" class="level4">
+<h4 class="anchored" data-anchor-id="qgis-windows-install-process">QGIS Windows Install Process:</h4>
+<ul>
+<li><p>The Windows install process is similar to that noted above for macOS. However, you have two options for Windows:</p></li>
+<li><p><code>OSGeo4W Network Installer</code> or <code>Long Term Version for Windows (3.40 LTR)</code></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/BRAT4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Windows QGIS LTR options</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>There are some advantages to the <code>OSGeo4W Network Installer</code> but both will work, resulting in an <code>.exe</code> package or a <code>.msi</code> package. Simply <em>right&gt;click</em> the either package and the package will be installed on the Windows OS. For individual machines, the <code>.exe</code> option is lighter weight and more streamlined.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_1_fall_25_NINT5380_files/img/BRAT6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Windows QGIS LTR options - <code>.exe</code> vs <code>.msi</code></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>for the Windows OS, the <code>.exe</code> executable file is a smaller, simplified version of the <code>.msi</code> - Microsoft Installer file. The <code>.exe</code> is generally recommended for individual machines that are not in a lab or office setting that don’t require ongoing software maintencence.</p>
+</div>
+</div>
+<ul>
+<li><p>Once fully installed, a new <strong>QGIS</strong> folder will be located inside the <strong>Programs</strong> folder on your machine. To access <strong>QGIS</strong> for the first time, use <strong>Search</strong> and then open the application as shown. Once open, you can pin it to your taskbar and/or make an application shortcut for future access in addition to launching application:</p></li>
+<li><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/pjnoxQg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS Installed (note that this image shows version 3.10.8; version 3.40 LTR will look similar)</figcaption><p></p>
+</figure>
+</div></li>
+</ul>
+</section>
+</section>
+<section id="assignment-i-part-ii---file-compression-tools" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-i-part-ii---file-compression-tools">Assignment I | Part II - File Compression Tools:</h2>
+<ul>
+<li>Once QGIS is installed, geospatial data will become necessary in order to perform GIS processes. In general, spatial data that is available and accessible will be downloaded via a browser - sometimes from an FTP location, but often as <code>.zip</code> compressed directories. Often build-in compression tools will work simply with a <em>right-click &gt; open</em> action. However, there’s situations where this will not be sufficient. The following utilities - 7 Zip for Windows and Keka for Mac - will suffice:</li>
+</ul>
+<p>https://www.keka.io/en/</p>
+<section id="windows-zip-utility-install-7-zip" class="level4">
+<h4 class="anchored" data-anchor-id="windows-zip-utility-install-7-zip">Windows Zip Utility Install (7 Zip):</h4>
+<ul>
+<li>Choose your operating system version from the list at 7 Zip:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/D6SVJvj.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">7 Zip version for OS</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Download the <code>.exe</code> and expand onto the Windows machine. Once installed, 7 Zip will be available with a <em>right-click &gt; open</em> action.</li>
+</ul>
+</section>
+<section id="mac-zip-utility-install" class="level4">
+<h4 class="anchored" data-anchor-id="mac-zip-utility-install">Mac Zip Utility Install:</h4>
+<ul>
+<li>Point the browser to <a href="https://www.keka.io/en/">keka.io</a> and download the utility tool:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/8Mnf8K8.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Mac OS utility tool</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Like QGIS, drag the utility tool icon rightward to the <strong>Applications</strong> folder: Once done, a <em>right-click &gt; open</em> action will give access to the utility tool to unpack a variety of compressed files and directories:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/LZhMgNJ.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Application &gt; Applications Folder</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Once done, a <em>right&gt;click &gt; open</em> action will give access to the utility tool to unpack a variety of compressed files and directories:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/WKyeur6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><code>open</code> for correct install</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="assignment-i-part-iii---the-qgis-application-interface" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-i-part-iii---the-qgis-application-interface">Assignment I | Part III - The QGIS application interface:</h2>
+<ul>
+<li><p>Utilize this week’s <a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/demos/c2_lecture_demo.html">Demonstration Lab 2</a> to become familiar with the QGIS application interface components.</p></li>
+<li><p>Conduct this guided lab on your own using the video guides therein; once complete, return to Part IV next and below to resume creating the first assignment deliverable.</p></li>
+</ul>
+</section>
+<section id="assignment-i-part-iv---producing-cartographic-output" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-i-part-iv---producing-cartographic-output">Assignment I | Part IV - Producing Cartographic Output:</h2>
+<ul>
+<li><p>In the previous <strong>Part III</strong>, spatial data was loaded into QGIS and then saved as a <code>.qgs</code> file. Note that the <code>.qgs</code> file itself is very small. This file is simply referencing the data sources - all files now in the main directory for the assignment:</p>
+<ul>
+<li><code>c1.natural.earth.data</code>.</li>
+</ul></li>
+<li><p>As discussed in the <a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/demos/c2_lecture_demo.html">Demonstration Lab 2</a>, good data hierarchy is important. A simple rule-of-thumb is to keep the data in a sub-folder with <code>.qgs</code> files saved alongside various sub-directories (folders) in the main project directory. This keeps everything tiddy; and importantly, QGIS can find everything located <em>inside</em> the main project directory.</p></li>
+<li><p>Typically there is some cartographic output for a project, i.e.&nbsp;the actual map(s). This is the final step to accomplish for <strong>Assignment 1</strong>. Here we will design a 8”x11” map of country boundaries with populated places. We will alter color and possibly the points symbol; add a simple legend; add a title and author tag. We will also alter the ‘Map Projection’ to gain a better areal representation of the country polygon boundaries (much more on this issue in coming weeks).</p></li>
+<li><p>Utilize the following video guide along with the following steps to create, design and finalize your map deliverable:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1002447807"><img src="assignment_1_fall_25_NINT5380_files/img/map-layout-icon.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Assignment I - Video Guide - Map Layout</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Step 1</strong>: <em>Toogle on</em> the <strong>New Print Layout</strong> tool (4th icon from left) located on the <strong>Toolbar</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/MGhXkjy.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS Print Layout Toolbar</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Next, set a title for the layout. This produces a completely new, blank space. This new space is the layout space where cartoraphic output will be developed:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/QJRahFe.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Layout Titling</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><em>right-click</em> atop the new blank space and choose <strong>Page Properties</strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/IIGA6o9.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Layout Page Properties</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Set the page space to <em>Letter</em> and <em>Landscape Orientation</em> at the right side of the layout interface:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/AU6bscC.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Page Orientation Options</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>To finish <strong>Step 1</strong>, save all work thus far via <em>Layout &gt; Save Project</em>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/LGEGAGt.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Saving QGIS Projects</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Step 2</strong>: <em>Toogle on</em> the <strong>Add Map</strong> tool located on the <strong>Toolbox</strong> toolbar:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/mVtMONn.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Adding the QGIS current map instance to Layout</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Next, draw out a rectangle just slightly smaller than the <strong>Layout Canvas</strong> space itself via the <strong>Add Map to Layout</strong> tool. This will immediately drop the features from the <strong>Map Canvas</strong> space into the new <strong>Layout Canvas</strong>.</p></li>
+<li><p>Typically this will ‘snap’ the features to a suitable scale. But if you need to make the features ‘smaller’ or ‘larger’ within the layout space, you can do that at the far right <em>Main Properties &gt; Scale</em> (larger number = ‘smaller’ vs smaller number = ‘larger’):</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/Z89PxnM.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Map Properties &gt; Scale</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Map scale will be covered in more detail during Class 3; for now just be concerned with fitting features to the map page.</p>
+</div>
+</div>
+<ul>
+<li>Next, we will alter the <strong>CRS</strong> - Coordinate Reference System, i.e.&nbsp;the ‘Map Projection’. We do this to enhance the ‘shape’ of the features giving a bit more negative space in which to place a legend onto the map page, as well as a title. Most importantly, this enhancement will result in more accurate representation of the ‘shapes’ of countries. This will be done in the same location generally as <em>Map Scale</em> above, just slightly lower on the dialog box. To enact, <em>click</em> the globe icon seen at right below:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/pghjJRr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS CRS in Map Layout</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Search for the Map Projection known as <strong>Robinson</strong>. Then subselect <strong>Sphere Robinson</strong> and apply:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/UI0u1eg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Robinson Map Projection</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>At the far left tool panel, you can use the 4th icon from the top - <strong>Move Content Tool</strong> - to reposition the map features as needed:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/6YvpAQn.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Moving Map Features in Map Layout</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to learn a bit more about the <strong>Robinson Projection</strong>, the wiki for the projection is a succinct read with a good historical overview - located <a href="https://en.wikipedia.org/wiki/Robinson_projection#:~:text=The%20Robinson%20projection%20is%20a,globe%20as%20a%20flat%20image.">HERE</a></p>
+</div>
+</div>
+<ul>
+<li><strong>Step 3</strong>: to finish the map design, first consider altering the color and stroke of the country administrative features, as well as the size and/or color of the points. In the example, the populated places will rest atop a simple, more neutral gray. To begin, return to the <strong>Map Canvas</strong> that will still be open behind the active <strong>Layout Canvas</strong>. <em>Right-click</em> the populated places feature, navigate to <em>Properties &gt; Symbology</em>. <em>Click Color</em> and make the desired color change.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/zB3ZpdR.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Map Symbology in QGIS</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Next, revise the country administrative layer in the same way. Return to the <strong>Layout Canvas</strong> and <em>Refresh</em> utilizing the <strong>Refresh Tool</strong> on the <strong>Navigation Tool Bar</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/BcjhqV1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Refresh View</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Next, drop in a legend item using the <strong>Legend Tool</strong> at far left via the <strong>Toolbox</strong> toolbar:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/XWEAvis.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Legend Items</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Unfortunately, the titling in the resulting legend is full of underscores and not as succinct as possible. The easy way to alter this is to rename the layers in <strong>Layers Panel</strong> at the <strong>Map Canvas</strong> (<em>right-click &gt; Rename Layer</em>). Here the points features will become simply ‘Populated Places’ and the administration boundaries simply ‘Countries’. The ‘old’ legend can then be cut from the <strong>Layout Canvas</strong> and replaced with a ‘new’ legend:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/KN4WezW.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Legend Items &gt; Renaming</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The final touch on this map will be a title, data source and author tag. All can be inserted via the <strong>Map Label Tool</strong> located at the <strong>Toolbox</strong> toolbar:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/O921z7N.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Map Titling</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Each item can them be fine-tuned at the far right under <strong>Main Properties</strong> as long as the targeted item is active in the top <strong>Item Panel</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/zMHBSdi.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS Map Canvas Items Panel</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="part-v---deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="part-v---deliverable">Part V - Deliverable:</h2>
+<ul>
+<li><p>The final deliverable for <strong>Class 2 Assignment 1</strong> will feature the following items:</p></li>
+<li><p>Main Map Frame with Populated Places and Countries symbolized</p></li>
+<li><p>A text item for a map title, and another text item for data source and author tag.</p></li>
+<li><p>A Map Legend</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/jVTsSuD.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Map Items in the Panel</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Save the project <code>.qgs</code>, save the <strong>Layout</strong> and export the cartographic output as PDF from the <strong>Layout Canvas</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/7Oxiu14.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">QGIS Export Options</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The final result should appear similar to the example below. Upload your <code>assignment.1.pdf</code> to the CANVAS location for the first class assignment. Save the project directory with all project materials in a location you’ve set aside for completed QGIS projects for the course.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/dR7HhUC.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Class 2 Assignment 1 Map Anatomy Example</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Refer to the following 3 map submission examples for further guidance/inspiration.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>in the first two maps linked below, the chosen <em>map scale</em> results in a ‘run-on’ of populated places along the map page edges both left and right. Try to avoid this by centering and setting your chosen <em>map scale</em> to feature <em>all</em> land mass and populated places fully within the main map frame, centered on the map page.</p>
+</div>
+</div>
+<ul>
+<li><a href="https://mapexamples.s3.us-east-2.amazonaws.com/c1/c1.v2.map.submission.examples.pdf">Class 2 Assignment 1 Map - 3 Submission Examples</a></li>
+</ul>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<p><a href="https://qgis.org/en/docs/index.html">QGIS Documentation</a>: includes the User Guide, Training Manual, and Gentle Introduction to GIS.</p>
+<p><a href="https://www.osgeo.org/">Open Source Geospatial Foundation</a>: includes news and information about projects, conferences, and community.</p>
+<p><a href="https://www.naturalearthdata.com/">Natural Earth Data</a>: Original data source utilized for this Assignment 1.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="assignment_1_fall_25_NINT5380_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,408 @@
+---
+title: "Class 2 - Lecture"
+subtitle: "Latitude + Longitude, Coordinate Systems, GPS, Precision & Metadata, Descriptions & Summaries"
+format:
+  revealjs: 
+    slide-number: true
+    theme: [index_files/custom.scss]
+    touch: true
+    incremental: true   
+resources:
+  - demo.pdf
+---
+
+## Coordinate Systems & Spaces
+
+<br>
+
+Rectangular, Cartesian Coordinate System
+
+![](index_files/img/grid.png){.absolute top="200" left="250" width="550"}
+
+::: footer
+Source: [Rectangular Coordinate System](https://math.libretexts.org/Bookshelves/Algebra/Beginning_Algebra/03%3A_Graphing_Lines/3.01%3A_Rectangular_Coordinate_System)
+:::
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System
+
+![](index_files/img/sphere_gcs.png){.absolute top="340" left="480" width="730"}
+
+::: {.incremental}
+- A geographic coordinate system is a system that uses a three-dimensional spherical surface to determine locations on the Earth.
+- A sphere is a solid figure where every point on the surface is equidistant from the center of the sphere. This distance is the radius, r, of the sphere.
+:::
+
+
+::: footer
+Source: [Sphere Formula](https://sciencenotes.org/surface-area-formulas-volume-formulas/)
+:::
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System
+
+![](index_files/img/cutaway-drawing-latitude-place-longitude-sizes-angles.jpeg){.absolute top="170" left="270" width="450"}
+
+
+::: footer
+Source: [Britannica Definition](https://www.britannica.com/science/latitude)
+:::
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System
+
+![](index_files/img/latitudelongitude.png){.absolute top="230" left="160" width="750"}
+
+
+
+::: footer
+Source: [Maps and Atlases](https://www.geographyalltheway.com/ks3_geography/maps_atlases/longitude_latitude.htm)
+:::
+
+
+
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System - quads
+
+![](index_files/img/quad1.png){.absolute top="200" left="160" width="750"}
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System - quads
+
+![](index_files/img/quad2.png){.absolute top="200" left="160" width="750"}
+
+## Coordinate Systems & Spaces
+
+Geographic Coordinate System - Null Island
+
+![](index_files/img/null.island.png){.absolute top="190" left="200" width="650"}
+
+::: footer
+Source: [Null Island](https://en.wikipedia.org/wiki/Null_Island)
+:::
+
+## Coordinate Systems & Spaces
+
+Lines of Latitude and Longitude
+
+::: {.incremental}
+- Lines of **latitude** are known as parallels.
+- Lines of **longitude** are known as meridians.
+- Taken together, these lines form a **graticule**, a spherical grid of latitude and longitude lines.
+:::
+
+## Coordinate Systems & Spaces
+
+Lines of Latitude 
+
+
+![](index_files/img/major-lines-latitiude-nasa.png){.absolute top="200" left="200" width="550"}
+
+
+
+::: footer
+Source: [Lines of Latitude](https://www.geographyrealm.com/latitude-longitude/)
+:::
+
+
+## Coordinate Systems & Spaces
+
+Lines of Latitude 
+
+<br>
+
+**Latitude** is the system of measurement that runs east to west across the globe, dividing the Earth into north and south. It divides the earth into two hemispheres, with 90 degrees of latitude in the northern hemisphere and 90 degrees of latitude in the southern hemisphere. **The Equator**, middle of the globe, is at 0 degrees latitude.
+
+## Coordinate Systems & Spaces
+
+Lines of Latitude 
+
+![](index_files/img/latitudehorizonZenith.gif){.absolute top="160" left="190" width="550"}
+
+::: footer
+Source: [Lines of Latitude](https://sciencepickle.com/earth-systems/coordinate-system/)
+:::
+
+
+## Coordinate Systems & Spaces
+
+Lines of Longitude 
+
+![](index_files/img/edu_prime-meridian_large.png){.absolute top="170" left="180" width="650"}
+
+::: footer
+Source: [Lines of Longitude](https://sciencetrends.com/lines-of-longitude-explained-with-maps/)
+:::
+
+## Coordinate Systems & Spaces
+
+Lines of Longitude
+
+<br>
+
+**Longitude** divides the globe into east and west halves, centered on a line called the **Prime Meridian**, or 0 degrees longitude. Every other line that runs north to south across the globe is known as a meridian, and it measures one degree of the entire Earth’s circumference. There are 360 degrees of longitude total, with 180 being west of the Prime Meridian and 180 being east of the Prime Meridian.
+
+
+## Coordinate Systems & Spaces
+
+Lines of Longitude 
+
+![](index_files/img/Longitude-copy.png){.absolute top="150" left="240" width="550"}
+
+::: footer
+Source: [Lines of Longitude](https://sciencepickle.com/earth-systems/coordinate-system/)
+:::
+
+## Coordinate Systems & Spaces
+
+
+Positioning within Lines of Latitude + Longitude (Graticule)
+
+![](index_files/img/LatLonOnEarth.png){.absolute top="170" left="260" width="500"}
+
+::: footer
+Source: [Coordinate Systems](https://gsp.humboldt.edu/olm/Lessons/GIS/03%20Projections/IntroductionToCoordinateSystems1.html)
+:::
+
+
+## GPS
+
+Global Positioning Systems (GPS)
+
+<br>
+
+
+As of February 2019, 31 satellites currently make up the GPS space segment, orbiting the earth about 12,000 miles above us. Each GPS satellite carries an accurate record of its own position and time, and broadcasts that data continuously. Based on data received from multiple GPS satellites, an end user's GPS receiver can calculate its own four-dimensional position in space and time.
+
+::: footer
+Source: [GPS Space Segment](https://en.wikipedia.org/wiki/Global_Positioning_System)
+:::
+
+## GPS
+
+GPS satellite factoids:
+
+::: {.incremental}
+- The official USDOD name for GPS is NAVSTAR.
+- The first GPS satellite was launched in 1978; a full constellation of 24 satellites was achieved in 1994.
+- Each satellite is built to last about 10 years. Replacements are constantly being built and launched into orbit.
+- A GPS satellite weighs approximately 2,000 pounds and is about 17 feet across with the solar panels extended.
+- GPS satellites are powered by solar energy, but they have backup batteries onboard, in case of a solar eclipse.
+:::
+
+::: footer
+Source: [Garmin](https://www.garmin.com/en-US/aboutgps/)
+:::
+
+## GPS
+
+Global Positioning Systems (GPS)
+
+![](index_files/img/GPS24goldenSML.gif){.absolute top="170" left="300" width="450"}
+
+::: footer
+Source: [Satellites](https://en.m.wikipedia.org/wiki/File:GPS24goldenSML.gif)
+:::
+
+## GPS
+
+Global Positioning Systems (GPS)
+
+![](index_files/img/Orbitalaltitudes.jpg){.absolute top="220" left="80" width="900"}
+
+::: footer
+Source: [Orbital Altitudes](https://en.wikipedia.org/wiki/Medium_Earth_orbit#/media/File:Orbitalaltitudes.jpg)
+:::
+
+## GPS
+
+GPS Handheld Interface (User Segment)
+
+![](index_files/img/gps_logged.jpeg){.absolute top="150" left="240" width="550"}
+
+::: footer
+Source: [GPS](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pce-instruments.com%2Fenglish%2Fmeasuring-instruments%2Ftest-meters%2Fiot-data-logger-for-industry-4.0-pce-instruments-iot-data-logger-pce-432-ekit-det_5961298.htm&psig=AOvVaw2J6qlZAD4DkuiSh9vLJT91&ust=1631552215097000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMD5vOnz-fICFQAAAAAdAAAAABAb)
+:::
+
+## GPS
+
+An iPhone GPS unit
+
+![](index_files/img/iphone_gps.jpeg){.absolute top="150" left="160" width="750"}
+
+
+::: footer
+Source: [GPS](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.anandtech.com%2Fshow%2F4971%2Fapple-iphone-4s-review-att-verizon%2F9&psig=AOvVaw2B4QaM6vIQb5CELMDN7sxv&ust=1631552970826000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJi--tj2-fICFQAAAAAdAAAAABAo)
+:::
+
+
+
+## GPS
+
+GPS unit formatting
+
+::: {.incremental}
+- WGS stands for World Geodetic System.
+- The latest revision is WGS 84 (also known as WGS 1984, EPSG:4326), established and maintained by the United States National Geospatial-Intelligence Agency since 1984, and last revised in 2014.
+:::
+
+
+![](index_files/img/garmin_84.jpeg){.absolute top="400" left="660" width="250"}
+
+::: footer
+Source: [GPS](https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.aukadia.net%2Fgps%2Flw3_00.htm&psig=AOvVaw1BVWAvrjlTTrzK89LHiwJf&ust=1631553687291000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLC32qL5-fICFQAAAAAdAAAAABAJ)
+:::
+
+## Coordinate Systems & Spaces
+
+Coordinate Formatting
+
+![](index_files/img/coordinate.expressions.png){.absolute top="200" left="90" width="900"}
+
+## Precision
+
+Numeric Precision
+
+::: {.incremental}
+- Numeric values can be described by precision and scale.
+- `P` represents the total number of all digits and `S` represents the two digits after the decimal.
+:::
+
+![](index_files/img/numeric-data-types-1.jpeg){.absolute top="400" left="160" width="550"}
+
+::: footer
+Source: [Precision](https://academy.vertabelo.com/blog/understanding-numerical-data-types-sql/)
+:::
+
+
+## Precision + Scale
+
+Geographic Precision - lat/lon digital expression
+
+- Digits right of a decimal point specify the **scale** dimension of the digital number in a latitude/longitude pairing.
+
+![](index_files/img/lat.lon.precision.png){.absolute top="300" left="160" width="750"}
+
+
+## Precision + Scale
+
+Charles and Ray Eames Powers of Ten Short Movie (1977)
+
+![](index_files/img/Powers_of_Ten_1977.gif){.absolute top="220" left="275" width="500"}
+
+
+::: footer
+Source: [Powers of Ten Movie](https://youtu.be/0fKBhvDjuy0?si=6-3_aMhluOLX6M8v)
+:::
+
+## Precision + Scale
+
+Geographic Precision can be taken to absurd lengths...
+
+![](index_files/img/absurd.png){.absolute top="150" left="160" width="700"}
+
+
+::: footer
+Source: [Geographic Precision](http://uxblog.idvsolutions.com/2013/11/silly-geographic-precision.html)
+:::
+
+## Precision + Accuracy
+
+![](index_files/img/precise_accuracy.png){.absolute top="280" left="280" width="400"}
+
+::: {.incremental}
+- **Precision** is how close each of the data points are to each other.
+- **Accuracy** is how close to the target the data points are.
+:::
+
+## Metadata
+
+Metadata is "data that provides information about other data"
+
+![](index_files/img/card_catalog.jpeg){.absolute top="190" left="200" width="700"}
+
+
+## Metadata
+
+Metadata can/should answer the following questions:
+
+::: {.incremental}
+- What does the data set describe?
+- Who produced the data set?
+- How and why was the data set created?
+- How reliable are the data; what problems remain in the data set?
+- How can someone get a copy of the data set?
+::: 
+
+::: footer
+Source: [Metadata](https://geology.usgs.gov/tools/metadata/tools/doc/ctc/)
+:::
+
+
+## Metadata
+
+Geospatial Metadata Example: Fire Information for Resource Management System (FIRMS)
+
+![](index_files/img/firms_metadata.png){.absolute top="200" left="160" width="750"}
+
+::: footer
+Source: [Metadata](https://earthdata.nasa.gov/earth-observation-data/near-real-time/firms/mcd14dl)
+:::
+
+## Descriptions and Summaries
+
+Foundational EDA^[Exploratory Data Analysis] - Describe, Summarize and analyze geospatial datasets
+
+::: {.incremental}
+- **Variable**: a symbol used to represent any given value or set of values
+- **Value**: an individual observation of a variable (in GIS, referred to as a *record*)
+- **Population**: the universe of all possible values for a variable
+- **Sample**: a subset of the population
+::: 
+
+## Descriptions and Summaries
+
+Foundational EDA^[Exploratory Data Analysis] - Describe, Summarize and analyze geospatial datasets
+
+::: {.incremental}
+- **n**: number of observations for a variable
+- **Array**: a sequence of observed measures (in GIS, referred to as a *field* and represented in a table as a *column*)
+- **Sorted Array**: an ordered, quantitative array
+::: 
+
+## Descriptions and Summaries
+
+Rates & Density (Standardization)
+
+Rates (Density) per geographic unit:
+
+<br>
+
+::: {.incremental}
+- **n** (observations) per acre
+- **n** (observations) per square mile
+- **n** (observations) per square kilometer
+::: 
+
+![](index_files/img/points_polygon.png){.absolute top="200" left="670" width="400"}
+
+
+## Descriptions and Summaries
+
+Rates & Density (Standardization)
+
+<br>
+
+::: {.incremental}
+- Formula: `n/total area of geographic boundary (polygon) measured by a geographic unit`
+- Expression: `number of n per square mile`; `number of n per square acre`; `number of n per square kilometer`
+::: 
+
+
+

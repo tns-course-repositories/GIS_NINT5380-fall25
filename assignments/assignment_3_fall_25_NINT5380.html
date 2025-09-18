@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-09-18">
+
+<title>Class 3 Assignment: Latitude &amp; Longitude, Decimal Numbers, Points in Polygons relationships, Filtering &amp; 2D Plotting</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="assignment_3_fall_25_NINT5380_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assignment_3_fall_25_NINT5380_files/libs/quarto-html/quarto.js"></script>
+<script src="assignment_3_fall_25_NINT5380_files/libs/quarto-html/popper.min.js"></script>
+<script src="assignment_3_fall_25_NINT5380_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assignment_3_fall_25_NINT5380_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assignment_3_fall_25_NINT5380_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assignment_3_fall_25_NINT5380_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assignment_3_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assignment_3_fall_25_NINT5380_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assignment_3_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="assignment_3_fall_25_NINT5380_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a></li>
+  <li><a href="#general-course-orientation-items-for-week-4-class-3" id="toc-general-course-orientation-items-for-week-4-class-3" class="nav-link" data-scroll-target="#general-course-orientation-items-for-week-4-class-3">General Course Orientation Items for Week 4 | Class 3</a></li>
+  <li><a href="#class-2-reading" id="toc-class-2-reading" class="nav-link" data-scroll-target="#class-2-reading">Class 2 Reading:</a></li>
+  <li><a href="#assignment-ii-map-large-scale-mapping-of-the-nyc-311-service-request-dataset" id="toc-assignment-ii-map-large-scale-mapping-of-the-nyc-311-service-request-dataset" class="nav-link" data-scroll-target="#assignment-ii-map-large-scale-mapping-of-the-nyc-311-service-request-dataset">Assignment II Map: Large Scale Mapping of the NYC 311 Service Request Dataset</a>
+  <ul class="collapse">
+  <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition">Data Acquisition:</a></li>
+  <li><a href="#data-acquisition-review" id="toc-data-acquisition-review" class="nav-link" data-scroll-target="#data-acquisition-review">Data Acquisition Review:</a></li>
+  <li><a href="#data-organization-within-qgis" id="toc-data-organization-within-qgis" class="nav-link" data-scroll-target="#data-organization-within-qgis">Data Organization within QGIS:</a></li>
+  </ul></li>
+  <li><a href="#visualizing-the-analysis-results---plot-and-cartographic-design" id="toc-visualizing-the-analysis-results---plot-and-cartographic-design" class="nav-link" data-scroll-target="#visualizing-the-analysis-results---plot-and-cartographic-design">Visualizing the analysis results - plot and cartographic design:</a></li>
+  <li><a href="#cartographic-design-suggestions" id="toc-cartographic-design-suggestions" class="nav-link" data-scroll-target="#cartographic-design-suggestions">Cartographic Design Suggestions:</a></li>
+  <li><a href="#video-guides" id="toc-video-guides" class="nav-link" data-scroll-target="#video-guides">Video Guides:</a></li>
+  <li><a href="#assignment-references" id="toc-assignment-references" class="nav-link" data-scroll-target="#assignment-references">Assignment References:</a></li>
+  <li><a href="#additional-references" id="toc-additional-references" class="nav-link" data-scroll-target="#additional-references">Additional References:</a></li>
+  <li><a href="#additional-out-of-the-box-downloadable-latlon-datasets" id="toc-additional-out-of-the-box-downloadable-latlon-datasets" class="nav-link" data-scroll-target="#additional-out-of-the-box-downloadable-latlon-datasets">Additional ‘out of the box’, downloadable Lat/Lon datasets:</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Class 3 Assignment: Latitude &amp; Longitude, Decimal Numbers, Points in Polygons relationships, Filtering &amp; 2D Plotting</h1>
+<p class="subtitle lead">Fall 2025 | <a href="https://courses.newschool.edu/courses/NINT5380">NINT5380 CRN2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 18, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="preamble" class="level2">
+<h2 class="anchored" data-anchor-id="preamble">Preamble</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/RhURUym.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Lines of Latitude &amp; Longitude</em></figcaption><p></p>
+</figure>
+</div>
+<p>This week’s class session and independent assignment will encompass the following concepts, which will be previewed during the <strong>Class 3</strong> lecture as well as the online group meeting Monday 09/22/25 at 8pm:</p>
+<ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Geographic_coordinate_system">Latitude and Longitude</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/World_Geodetic_System">World Geodetic System (WGS)</a></p></li>
+<li><p><a href="http://www.whatisgis.com/whatisgis_data.htm">Spatial vs.&nbsp;Attribute Data</a></p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before proceeding to your work on the class 3 assignment, pause and watch the lecture recording. In addition to Class 3 fundamentals, both terminology and some software items are discussed. Note that the lecture is titled ‘lecture 2’ although it is designed for class 3 content.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1007072208"><img src="c2_assignment_fall_24_NINT5380_files/img/v1a.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Lecture 2 Recording</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Visual Analogies for remembering Latitude vs Longitude:</p>
+<ul>
+<li>Lat/Lon points are determined by angular degree measurements based on a mathematical point at center of earth sphere (black dot) before they become points on a flat map:</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/iuiFQLy.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>A mapped GCS coordinate</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Latitude is analogous to rungs or steps on a ladder:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://imgur.com/bCfWhyk.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Latitude as rungs on ladder</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Longitude is analogous to telephone pole stakes running east to west:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/GOD6kcC.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Longitude as telephone poles</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="general-course-orientation-items-for-week-4-class-3" class="level2">
+<h2 class="anchored" data-anchor-id="general-course-orientation-items-for-week-4-class-3">General Course Orientation Items for Week 4 | Class 3</h2>
+<ul>
+<li><a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/agendas/c2_agenda_fall_25_NINT5380.html">Class 3 Agenda</a></li>
+<li><a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/demos/c3_lecture_demo.html">Class 3 Demonstration Lab 3 (not graded)</a></li>
+<li><a href="https://tns-course-repositories.github.io/GIS_NINT5380-fall25/assignments/assignment_3_fall_25_NINT5380.html">Class 3 Assignment</a></li>
+<li><a href="https://gis-nspe-tns.github.io/GIS_NINT5380_fall24/lectures/lecture.2/index.html">Lecture 2 - Latitude + Longitude, Coordinate Systems, GPS, Precision &amp; Metadata, Data; Descriptions &amp; Summaries</a></li>
+</ul>
+</section>
+<section id="class-2-reading" class="level2">
+<h2 class="anchored" data-anchor-id="class-2-reading">Class 2 Reading:</h2>
+<ul>
+<li><p>This week’s reading will be from our course textbook <a href="https://students.flatworldknowledge.com/engage/courses/2614254">Essentials of Geographic Information Systems textbook</a></p></li>
+<li><p>Essentials of Geographic Information Systems textbook:</p>
+<ul>
+<li><strong>Chapter 2, pages 29 - 43</strong>: <em>Data, Information and Where to Find Them</em>.</li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Class 3 content quiz (opens Sunday 09/28/2025 7AM) will features 10 questions covering content in Chapter 2 noted above.</p>
+</div>
+</div>
+</section>
+<section id="assignment-ii-map-large-scale-mapping-of-the-nyc-311-service-request-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-ii-map-large-scale-mapping-of-the-nyc-311-service-request-dataset">Assignment II Map: Large Scale Mapping of the NYC 311 Service Request Dataset</h2>
+<ul>
+<li>In the following assignment steps the <a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/about_data">NYC’s 311 Service Requests</a> for Covid Social Distancing is utilized as an example dataset. Generally the same steps apply to all 311 themes available. For this assignment, choose a theme and a time period filter for your <em>own assignment submission</em>.</li>
+</ul>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are many 311 data themes; spend some time picking one that you find engaging and want to see the spatial pattern of the data.</p>
+</div>
+</div>
+<ul>
+<li>In order to choose a theme, you must obviously know which themes are available. In the 311 dataset, themes are organized by <code>Complaint Type</code> first; with subcategories that are listed as <code>Descriptor</code>. A third column is provided for the theme preview titled <code>Unique Key</code>, which in this case is a count of records per <code>Complaint Type</code> + <code>Descriptor</code>. To no one’s surprise, <code>Noise - Residential</code> + <code>Loud Music/Party</code> has the largest count at <code>1,665,443</code> records dating back to 2010.</li>
+</ul>
+<p>At the following link you can download an Excel file that will list the <code>Complaint Type</code> and the agency that handles the <code>Complaint Type</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_3_fall_25_NINT5380_files/img/ct.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>NYC311 Data Dictionary for Complaint Types</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>To access the actual 311 data, the following link is utilized as the start point:</p>
+<ul>
+<li><a href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9/about_data">NYC 311 Dataset</a></li>
+</ul></li>
+<li><p>In this assignment, we will map the 311 data, conduct a spatial operation then visualize the results both in cartographic and chart outputs. Often GIS output will feature a combination of aspects, attributes or dimensions of a dataset. A recent example of this approach to data visualization from <a href="https://www.nationalgeographic.com/magazine/2021/02/who-owns-americas-history-the-answer-will-define-what-replaces-fallen-monuments-feature/">National Geographic - Monumental Undertaking</a> shows first the temporal dimension of Confederate statues, followed by their spatial distribution:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/BUknDi3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Example of data presentation in 2D plot for temporal dimension coupled with spatial distribution in the map itself</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>The following mapping assignment utilizes the spatial distribution of <em>Social Distancing complaints</em> as an assignment example, alongside an aggregate count per NYC borough. By visualizing both the disaggregate data points and aggregate count, the final product allows a meaningful count in addition to spatial distribution alone.</p></li>
+<li><p><strong>To Start</strong>, first acquire the data in <code>.csv</code> format, then map it against the 5 boroughs in NYC. The <strong>Latitude</strong> and <strong>Longitude</strong> spatial attributes in the dataset will be used to transform the <em>tabular dataset</em> into a <em>spatial dataset with geometry</em> - <code>.csv</code> to <code>.shp</code>. Along the way, a total complaint count per borough will be determined, and finally a rate of complaint per borough. A map product is then developed that shows the pattern of the data and charts the relative complaint count per borough.</p></li>
+<li><p>To start, the following filter query and rate formula will be utilized in the assignment:</p>
+<ul>
+<li>To filter the 311 data just the Descriptor will be used, set to <code>Social Distancing</code>.</li>
+<li>In order to determine a square mile per borough:<code>shape_area * 0.00000003587006428 = square mile</code></li>
+</ul></li>
+</ul>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For filtering, a combination of <code>Complaint Type</code> and <code>Descriptor</code> can be utilized effectively to narrow results. In the following steps, images and video, a slightly older version of the 311 platform is shown. The interface has been updated recently and the filter tools are now located as a default at the bottom of the browser, under the dataset. All the same principles apply; just note the interface is different in some respects.</p>
+</div>
+</div>
+<section id="data-acquisition" class="level3">
+<h3 class="anchored" data-anchor-id="data-acquisition">Data Acquisition:</h3>
+<ul>
+<li>Navigate browser to <a href="https://opendata.cityofnewyork.us/data/">NYC OpenData</a>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/2fK4ePj.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>NYC OpenData</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Scroll down to the 311 Dataset link and <em>click</em>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/z4WACEv.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>311 Service Requests</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Note that there are multiple 311 Service Request instances. Make sure to select the <code>Dataset</code>, not <code>Data Lens</code> instance:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/enAKjUC.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>311 Dataset</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Once selected, continue with <code>View Data</code> button selection:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/BEeWzAP.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>View Data</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Apply a <strong>Filter</strong> based on query <code>Descriptor is Social Distancing</code>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/B6lsXAS.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Applying Data Filter</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The resulting subselection would be 62,000 + records with the <code>Social Distancing</code> Descriptor attribute:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/YQCcFHI.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Record Results</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Download the subselection <code>.csv</code> to a folder directory for <strong>Part II</strong>. Accept the default naming convention of the <code>.csv</code>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/g5Ba0I2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Download Record Results</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>If desired, open the <code>.csv</code> in <strong>Excel</strong> and navigate to right-end of the file. Here you will see <code>Latitude</code> and <code>Longitude</code>. These two columns will be utilized to read in the location data for the creating of geometry (points) within QGIS:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/YRiBqH7.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Locational Data</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Finally, download the <a href="https://weekly-materials.s3-us-west-1.amazonaws.com/c2.assignment.data/c2.map.assignment.data.v2.zip">Class3 map data folder (named c2)</a>. Here you will find the borough geometry, and a backup <code>.csv</code> of the 311 data as of 01/29/21. Only use this <code>.csv</code> as testing data, not data for the assignment per se:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/vxyoY4a.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Class 2 Assignment Data</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="data-acquisition-review" class="level3">
+<h3 class="anchored" data-anchor-id="data-acquisition-review">Data Acquisition Review:</h3>
+<p>Before proceeding to QGIS, make sure to review your filter conditions. Also if you are stuck on the filtering process, review the video below in this section.</p>
+<ul>
+<li><p><strong>Filter Condition 1</strong>: What will be the time dimension (<code>Create Date</code>) of your mapping? Is a certain time duration important to the mapping, i.e.&nbsp;events tied to a certain NYC policy, natural disaster or weather period?</p></li>
+<li><p><strong>Filter Condition 2</strong>: What will be the 311 <code>Complaint Type</code> theme of your mapping?</p></li>
+<li><p><strong>Filter Condition 3</strong>: As a further option, consider a filter on the <code>Descriptor</code> dimension to narrow yet further the return requests.</p></li>
+<li><p><strong>Page/paper orientation and size</strong>: will your final output be landscape or portrait orientation? Either letter or tabloid, landscape or portrait is acceptable for this second mapping assignment.</p></li>
+</ul>
+<p>To help with the filter conditions, review this short video below (<strong>Password = 311</strong>):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/795354525"><img src="https://i.imgur.com/ZU1rQ4Y.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">311 NYC Data Filters Video Guide</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="data-organization-within-qgis" class="level3">
+<h3 class="anchored" data-anchor-id="data-organization-within-qgis">Data Organization within QGIS:</h3>
+<ul>
+<li><strong>Open</strong> QGIS and point the <strong>Data Source Manager</strong> to the <code>.csv</code> service requests utilizing the <em>Delimited Text</em> data source option. Make sure to populate the tool as seen below and rename the layer simply as <code>311_SR</code>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/wVGfbKa.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Delimited Text - QGIS</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Next</strong>, load the borough boundary shapefile, and position the service requests atop the borough boundary and symbolize so that the the points are approximately <code>0.25</code> size in black, and the boroughs are a light neutral color of your choice:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/AQ4x5zh.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>NYC Borough Geography</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There will be some stray points outside NYC area. These are incorrect lat/lon data points wherein the lat/lon was recorded incorrectly in the 311 dataset. Disregard these points. Also now is the time to begin to save your <code>.qgs</code> file on a regular basis in order to avoid duplicate work in the event of a software crash.</p>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may notice that your data ‘shape’ is horizontally elongated compared to the image above. This is due to the fact that the data is cast within <code>wgs84</code> coordinate system. We can change that easily so that the ‘shape’ is much more accurate. To do so, we will utilize the map projection designed for the NYC area (State Plane system). First <em>click</em> on the <code>CRS</code> button, lower right of <strong>Map Canvas</strong>. Once done, search for <code>3104</code> which is a short code for the correct map projection for NYC. Then <em>click</em> <code>Add</code> at bottom of tool window. The shape of the data will automatically update. This is a type of ‘on the fly’ projection; we are changing the <strong>Map Canvas</strong> coordinates, but we are leaving the actual <code>.prj</code> file on each of the data sources unchanged. This is a ‘quick and dirty’ yet efficient cartographic kludge (hack):</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/GjXrrXW.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Location of CRS reference - lower right of Map Canvas</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/XjPRXKb.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>CRS Filter</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You may run into a CRS projection issue with the polygon feature for NYC boroughs. IF your features disappear from your Map Canvas as you perform an ‘on the fly’ projection for the data frame, the following video will solve this problem:</p>
+</div>
+</div>
+<ul>
+<li>Addressing the <em>Missing CRS</em> dilemma:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/458699285"><img src="https://i.imgur.com/mqTJUrA.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption"><em>Handling CRS in QGIS</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p><strong>Next</strong>, we want know how many complaints exist per borough expressed in the following structured question:</p>
+<ul>
+<li>Which borough has the most ‘Social Distancing’ public complaint reports due to Covid-19 distancing mandates in New York City and State ?</li>
+<li>Which borough has the highest rate of public complaint reports based on square area (square miles) ?</li>
+</ul></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For this second question, perhaps a more insightful query would be rate of public complaints per 10K population. Certainly we can answer this question also, but we would need population data which we will cover in depth in Class 4 - Thematic Mapping.</p>
+</div>
+</div>
+<ul>
+<li><p><strong>Utilize</strong> the <a href="https://docs.qgis.org/3.40/en/docs/user_manual/processing_algs/qgis/vectoranalysis.html#count-points-in-polygon">Count points in polygon</a> overlay operation to get a total count of complaint records per borough. This tool is available from the <strong>Main Menu</strong>:</p></li>
+<li><p><em>Vector &gt; Analysis Tools &gt; Count Points in Polygon</em></p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/vyHyHKB.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Count Points in Polygon Operation</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Populate the tool with the polygon and points ordered as follows:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/otlm0NX.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Counts in Polygon Tool Parameters</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>This operation will result in a new temporary layer <code>COUNT</code>. Immediately export this new layer as a <code>.shp</code> into your working directly, entitled <code>311_borough</code>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/AOB66Cs.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Export Operation</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/WgyDZsd.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Export Operation as <code>.shp</code></em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See that the new <code>.shp</code> now contains a field column entitled <code>NUMPOINTS</code> in integer format (int8) - this is the count per borough.</p>
+</div>
+</div>
+<ul>
+<li><strong>Next</strong>, calculate the complaints per borough and the rate of complaints per borough in the attribute table of the new <code>311_borough.shp</code>. To do this navigate to the <strong>Toolbar</strong> and choose the <strong>Field Calculator</strong> tool:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/3sRqVIQ.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>QGIS Field Calculator</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Make sure <code>311_borough</code> is active in the layers panel. Create a new field <code>sq.mile</code> and populate with the following formula, using <em>Fields and Values &gt; shape_area</em> dropdown:</p>
+<ul>
+<li><code>shape_area * 0.00000003587006428</code></li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/HqioQLk.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Field Calculator Operation</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This formula takes the current areal quantity in sq. feet and converts it to a sq. mile - a unit that is more appropriate to the size of the borough polygons.</p>
+</div>
+</div>
+<ul>
+<li>To complete, save the attribute addition; <em>Toggle Editing</em> to the off position and <em>Save</em>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/Knb5nM6.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Toggle Editing</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>With the number of complaints per borough (<code>NUMPOINTS</code>) and the sq. miles of each borough (<code>sq.mile</code>), a rate normalized to sq. area can be achieved. Again, open the <strong>Field Calculator</strong> and use the same process as above to <em>Create a new field</em>, but this time name the field <code>rate.sq.mi</code> and use the following formula:</p></li>
+<li><p><code>"NUMPOINTS" / "sq.mile"</code></p></li>
+<li><p>Again, save the attribute addition; <em>Toggle Editing</em> to the off position and <em>Save</em>.</p></li>
+<li><p><strong>Open</strong> the attribute table and view the results. Its clear the rate of complaints per sq. mile in Manhattan is highest, even as its total count is lower than Brooklyn. The influence of the outer neighborhoods in Brooklyn is likely bringing down the rate in Brooklyn as a whole. In other words, the most populated areas of Brooklyn are likely on par with the rate of complaints per sq. mile as Manhattan.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/uISSyny.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Attribute Table with Added Fields</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are having problems with the <strong>Field Calculator</strong> at this stage of the assignment, the following video will walk through each step and may be helpful to get back on track:</p>
+</div>
+</div>
+<ul>
+<li>Creating Sq Miles &amp; Rates with QGIS <strong>Field Calculator</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/458724761"><img src="https://i.imgur.com/o6P5TcK.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">area and rates</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="visualizing-the-analysis-results---plot-and-cartographic-design" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-analysis-results---plot-and-cartographic-design">Visualizing the analysis results - plot and cartographic design:</h2>
+<ul>
+<li><p>With the analysis steps complete, we move along to cartographic design and output. We can augment the map design with a graphing feature to good effect. The following components will be featured in this final stage:</p>
+<ul>
+<li>Utilize QGIS Plugin architecture.</li>
+<li>Produce cartographic output; augment with graph design.</li>
+<li>Incorporate HTML elements into the <strong>Map Layout</strong>.</li>
+</ul></li>
+<li><p><strong>To start</strong>, make sure the <code>.qgs</code> files is saved.</p></li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As there will be 60K points on this map, consider ramping down opacity and keep small symbol size. For the example map, opacity of points has been set at approx. 75%, and the size 0.25.</p>
+</div>
+</div>
+<ul>
+<li><strong>Next</strong>, in order to incorporate graphing components into map layouts, we’ll use the <a href="https://plugins.qgis.org/plugins/DataPlotly/">Data Plotly plugin</a>. This is one of the new features within QGIS 3.x. To install plugins, utilize the <strong>Plugins Main Menu</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/ASSgzue.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>QGIS Plugins</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Search for <strong>DataPlotly</strong>. When the plugin loads, choose to <em>Install plugin</em>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/T81ExzF.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>DataPlotly</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Once installed, the following icon will be placed on the main <strong>Toolbar</strong> menu. Go ahead and <em>click</em> atop the icon to open the DataPlotly toolset:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/1aIUHx1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>DataPlotly toolset</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The first icon on the left (paintbrush and bucket) is the initial setup for graph. Here we choose a bar graph, the layer and the x and y axis. Importantly, the bar color, stroke color and width can be determined:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/QlObCCr.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Parameters and Properties</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Next</strong>, move to the icon below (gears) to set the title, axis labels. Once complete, <em>click</em> <code>Create Plot</code> in the lower section of the tool window. This creates a preview of the graph:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/74UptpK.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Gears Icon at DataPlotly</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Finally</strong>, <em>click</em> the last icon to access the <code>HTML</code> expression of the chart. This code can be highlighted, copied and then placed into a text editor (do not use MS Word. In the Class 2 lab, text editors will be discussed. There are many free, accessible editors).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/uE0jzBa.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>HTML DataPlotly Properties</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>With the code complete and copied safely to a text editor (not MS Word), Create a new layout instance, and <code>Save Project</code> from within <strong>Map Layout</strong>. Include the following elements:</p>
+<ul>
+<li>Main Map elements - 311 Social Distance Request Locations + NYC Boroughs</li>
+<li>Map/Graph author tag (your name) + data source</li>
+<li>Map legend</li>
+<li>Embedded Data Plotly graph</li>
+</ul></li>
+<li><p>The first three elements were covered generally in Class 1, Assignment 1 so you should have some familiarity with their creation and design. The fourth element - the Data Plotly graph - is a bit more challenging, but with some practice both valuable and efficient.</p></li>
+<li><p><strong>To start</strong> the graph, <em>click</em> the <strong>Add a New HTML to the Layout</strong> icon at left and draw out a element box on the <strong>Layout Canvas</strong>:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/8lEWW6s.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Add copied HTML to Layout</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The result is a new empty element both on the map and in the right items panel. Copy the <code>HTML</code> code from the text editor into the <strong>HTML source</strong> section with the <strong>Source</strong> button activated. <em>Click Return</em> and the chart will appear on the <strong>Layout Canvas</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/lkjJfr3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>New HTML element in Layout Canvas</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>The following video covers the <strong>Data Plotly</strong> plugin process from installing the plugin to final design:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/863628650"><img src="https://i.imgur.com/IMhmQST.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Data Plotly w/ QGIS</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="cartographic-design-suggestions" class="level2">
+<h2 class="anchored" data-anchor-id="cartographic-design-suggestions">Cartographic Design Suggestions:</h2>
+<ul>
+<li>You will often want to toogle the stacking order of the various elements on the map page. For instance, negative space surrounding the map elements may partially obscure the graph and vice versa. You can toogle one atop the other in a desired order from the <strong>Actions Toolbar</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/ydAonpZ.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Actions - Horizontal Properties Positioning</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>The font style is difficult to change within Data Plotly. Given this constraint, you can either use the same font as that of Data Plotly - Open Sans - or you can find a complimentary font style for your title, legend items, ect.</p></li>
+<li><p>Download Open Sans font - free - <a href="https://fonts.google.com/specimen/Open+Sans">Open Sans Font</a></p></li>
+<li><p><a href="https://www.figma.com/google-fonts/open-sans-font-pairings/">Pair with complimentary font styles</a></p></li>
+<li><p><strong>Review</strong> the <a href="https://weekly-materials.s3-us-west-1.amazonaws.com/c2.assignment.data/class2.assignment_layout.example.pdf">Assignment Example</a> before finalizing your assignment. You are encouraged to experiment and choose a different approach than the example, but do indeed include all elements found in the example. Upload your PDF export to CANVAS assignment 3 submission location.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://i.imgur.com/SbMmO7P.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Class 3 Assignment Example</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="video-guides" class="level2">
+<h2 class="anchored" data-anchor-id="video-guides">Video Guides:</h2>
+<ul>
+<li>Addressing the <em>Missing CRS</em> delimma:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/458699285"><img src="https://i.imgur.com/mqTJUrA.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">A Missing CRS</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Creating Sq Miles &amp; Rates with QGIS <strong>Field Calculator</strong>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/458724761"><img src="https://i.imgur.com/o6P5TcK.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Area &amp; Rates</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>311 Data Filtering:</p>
+<ul>
+<li>Use <strong>Password = 311</strong> to access video:</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/795354525"><img src="https://i.imgur.com/ZU1rQ4Y.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">311 NYC Data Filters Video Guide</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Data Plotly</strong> + QGIS - creating a bar plot for the assignment submission:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/863628650"><img src="https://i.imgur.com/IMhmQST.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Data Plotly w/ QGIS</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="assignment-references" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-references">Assignment References:</h2>
+<ul>
+<li><p><a href="https://patch.com/new-york/new-york-city/311-receives-4k-social-distancing-complaints-just-1-week">COVID-19 Social Distance Complaints - Patch.com</a></p></li>
+<li><p><a href="https://fonts.google.com/specimen/Open+Sans">Open Sans Font</a></p></li>
+<li><p><a href="https://weekly-materials.s3-us-west-1.amazonaws.com/c2.assignment.data/c2.map.assignment.data.v2.zip">Assignment Data Folder Link</a></p></li>
+<li><p><a href="https://weekly-materials.s3-us-west-1.amazonaws.com/c2.assignment.data/class2.assignment_layout.example.pdf">Assignment Example</a></p></li>
+</ul>
+</section>
+<section id="additional-references" class="level2">
+<h2 class="anchored" data-anchor-id="additional-references">Additional References:</h2>
+<p><strong>Additional Class 2 Spatial related data/readings/articles:</strong></p>
+<ul>
+<li><p>A comprehensive, contemporary take on all things <a href="https://stamen.com/the-many-lives-of-null-island/">NULL Island</a></p></li>
+<li><p>A concise definition of <a href="https://support.esri.com/en/other-resources/gis-dictionary/term/bounding%20rectangle">bounding box</a> often used in conjunction with lat/lon.</p></li>
+<li><p><a href="https://youtu.be/PmTCxRWEwms">A map scale introduction video - large vs small scale</a></p></li>
+<li><p><a href="http://geoawesomeness.com/the-earth-is-not-flat-google-maps-confirms-with-globe-mode/?utm_campaign=carto%205&amp;utm_source=hs_email&amp;utm_medium=email&amp;utm_content=65321042&amp;_hsenc=p2ANqtz-9-41VO3r01Z2gjygU62tM6rjsLPvL6UTY0c_TE9uosm1AHp4CJJrbWFivSSEFA_OtPFg4EkwbAENqX8DYfvUEf5YB8Vw&amp;_hsmi=65321494">The Earth is not flat, Google Maps confirms with Globe Mode</a></p></li>
+<li><p><a href="https://www.theverge.com/2018/1/28/16942626/strava-fitness-tracker-heat-map-military-base-internet-of-things-geolocation">Strava’s fitness tracker heat map reveals the location of military bases</a></p></li>
+<li><p><a href="https://geocode.localfocus.nl/">Batch Geocoder for Journalists</a></p></li>
+<li><p>Often lat/lon pairings are expressed in DMS (degree, minute, second) as opposed to Decimal format which is necessary &amp; standard for digital mapping. Find out more on the expression of <a href="https://www.maptools.com/tutorials/lat_lon/formats">DMS vs.&nbsp;Decimal format</a>.</p></li>
+</ul>
+<p>To follow, a short tutorial on Degree|Minute|Second conversion to Decimal lat/lon expression:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.youtube.com/watch?v=S_nxWwtYfq4-Y" title="DMS to Decimal Table Conversion"><img src="http://img.youtube.com/vi/S_nxWwtYfq4/hqdefault.jpg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">latlonDMS</figcaption><p></p>
+</figure>
+</div>
+<p>Further, you can make the DMS&gt;Decimal Degrees and vice versa on a point-by-point basis using an online converter like the following:</p>
+<ul>
+<li><p>https://www.fcc.gov/media/radio/dms-decimal</p></li>
+<li><p><a href="https://opendata.socrata.com/dataset/Country-List-ISO-3166-Codes-Latitude-Longitude/mnkm-8ram">Country List ISO 3166 Codes Latitude Longitude</a></p></li>
+</ul>
+</section>
+<section id="additional-out-of-the-box-downloadable-latlon-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="additional-out-of-the-box-downloadable-latlon-datasets">Additional ‘out of the box’, downloadable Lat/Lon datasets:</h2>
+<ul>
+<li><p><a href="https://data.cityofchicago.org/Public-Safety/Crimes-2018/3i3m-jwuy">Chicago Crime Points Features - updated to present</a></p></li>
+<li><p><a href="https://www.huduser.gov/portal/datasets/pis.html">HUD Physical Inspection Scores</a></p></li>
+<li><p><a href="https://openaddresses.io/">Open Addresses - Address data, various countries, regions</a></p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="assignment_3_fall_25_NINT5380_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-11-02">
+
+<title>Class 9 Assignment: Mapping Vulnerability</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="assignment_9_fall_25_NINT5380_files/libs/clipboard/clipboard.min.js"></script>
+<script src="assignment_9_fall_25_NINT5380_files/libs/quarto-html/quarto.js"></script>
+<script src="assignment_9_fall_25_NINT5380_files/libs/quarto-html/popper.min.js"></script>
+<script src="assignment_9_fall_25_NINT5380_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="assignment_9_fall_25_NINT5380_files/libs/quarto-html/anchor.min.js"></script>
+<link href="assignment_9_fall_25_NINT5380_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="assignment_9_fall_25_NINT5380_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="assignment_9_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="assignment_9_fall_25_NINT5380_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="assignment_9_fall_25_NINT5380_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="assignment_9_fall_25_NINT5380_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#preamble" id="toc-preamble" class="nav-link active" data-scroll-target="#preamble">Preamble</a></li>
+  <li><a href="#class-10-recorded-lecture" id="toc-class-10-recorded-lecture" class="nav-link" data-scroll-target="#class-10-recorded-lecture">class 10 Recorded Lecture:</a></li>
+  <li><a href="#class-10-readings" id="toc-class-10-readings" class="nav-link" data-scroll-target="#class-10-readings">Class 10 Readings:</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data:</a></li>
+  <li><a href="#assignment-step-1" id="toc-assignment-step-1" class="nav-link" data-scroll-target="#assignment-step-1">Assignment Step 1</a></li>
+  <li><a href="#assignment-step-2---data-preprocessing-for-the-vector-features" id="toc-assignment-step-2---data-preprocessing-for-the-vector-features" class="nav-link" data-scroll-target="#assignment-step-2---data-preprocessing-for-the-vector-features">Assignment Step 2 - Data preprocessing for the vector features</a></li>
+  <li><a href="#assignment-step-3---overlay-geoprocessing" id="toc-assignment-step-3---overlay-geoprocessing" class="nav-link" data-scroll-target="#assignment-step-3---overlay-geoprocessing">Assignment Step 3 - Overlay Geoprocessing</a></li>
+  <li><a href="#assignment-step-4---table-development" id="toc-assignment-step-4---table-development" class="nav-link" data-scroll-target="#assignment-step-4---table-development">Assignment Step 4 - Table Development</a></li>
+  <li><a href="#video-guide-i-step-i---ix" id="toc-video-guide-i-step-i---ix" class="nav-link" data-scroll-target="#video-guide-i-step-i---ix">Video Guide I | Step I - IX:</a></li>
+  <li><a href="#assignment-step-5---normalization-by-geography-attribute" id="toc-assignment-step-5---normalization-by-geography-attribute" class="nav-link" data-scroll-target="#assignment-step-5---normalization-by-geography-attribute">Assignment Step 5 - Normalization by Geography Attribute</a></li>
+  <li><a href="#assignment-step-6---rank-assignments" id="toc-assignment-step-6---rank-assignments" class="nav-link" data-scroll-target="#assignment-step-6---rank-assignments">Assignment Step 6 - Rank Assignments</a></li>
+  <li><a href="#video-guide-ii-step-ix---xii" id="toc-video-guide-ii-step-ix---xii" class="nav-link" data-scroll-target="#video-guide-ii-step-ix---xii">Video Guide II | Step IX - XII:</a></li>
+  <li><a href="#assignment-step-7---thematic-design" id="toc-assignment-step-7---thematic-design" class="nav-link" data-scroll-target="#assignment-step-7---thematic-design">Assignment Step 7 - Thematic Design</a></li>
+  <li><a href="#map-layout-deliverable" id="toc-map-layout-deliverable" class="nav-link" data-scroll-target="#map-layout-deliverable">Map layout &amp; Deliverable:</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources:</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Class 9 Assignment: Mapping Vulnerability</h1>
+<p class="subtitle lead">Fall 2025 | <a href="https://courses.newschool.edu/courses/NINT5380">NINT5380 - CRN2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 2, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/header.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Historical Tornado Strikes, United States. Source - https://www.noaa.gov/</em></figcaption><p></p>
+</figure>
+</div>
+<section id="preamble" class="level2">
+<h2 class="anchored" data-anchor-id="preamble">Preamble</h2>
+<p>As discussed in this week’s lecture, tornado hazard and vulnerabilities in both the social and physical environment in the United States can come together with tragic consequences. In this week’s assignment, both hazard and vulnerabilities will be accessed at the US County aggregation. A custom scoring mechanism will be utilized to thematically map four conditions:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/risk.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Risk Matrix across 4 Conditions</em></figcaption><p></p>
+</figure>
+</div>
+<p>The assignment features several sections as follows:</p>
+<ul>
+<li>Mapping Vulnerability - Hazard x Vulnerability = Risk</li>
+<li>Vector Geoprocessing</li>
+<li>Attribute Summarization</li>
+<li>Custom Scoring Mechanism</li>
+<li>Thematic map design for Mapping Vulnerability</li>
+</ul>
+</section>
+<section id="class-10-recorded-lecture" class="level2">
+<h2 class="anchored" data-anchor-id="class-10-recorded-lecture">class 10 Recorded Lecture:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1023617580"><img src="assignment_9_fall_25_NINT5380_files/img/C9_lecture.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption"><em>Class 9 Recorded Lecture - Mapping Vulnerability + Spatial Statistics</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before proceeding with assignment steps below, review the posted lecture slides + lecture recording for an overview of this week’s concepts and themes.</p>
+</div>
+</div>
+</section>
+<section id="class-10-readings" class="level2">
+<h2 class="anchored" data-anchor-id="class-10-readings">Class 10 Readings:</h2>
+<p>This week’s readings are <em>NOT</em> from the course textbook, and there will be no quiz for this week’s content. For context readings, refer to the <strong>Further References</strong> section at the bottom of the assignment.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data:</h2>
+<p>Original Data Source:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/header.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Assignment Data Structure</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><a href="http://www.spc.noaa.gov/gis/svrgis/">Tornado RISK</a></li>
+<li><a href="http://www.spc.noaa.gov/wcm/data/SPC_severe_database_description.pdf">Metadata</a></li>
+</ul>
+<p><a href="https://www.dropbox.com/scl/fi/n5amjsiir4ioltwlo7si8/c9_assignment_data.zip?rlkey=zo9fafrk9s7ltfnadr2pr8ima&amp;st=zfpjjj8m&amp;dl=1">Location of Class 10 Assignment Direct Data Download</a></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While the assignment steps below will feature <strong>Tornadoes (1950-2021)</strong>, there is a slightly updated version available at NOAA - <strong>Tornadoes (1950-2023)</strong>; and further <strong>Tornadoes (1950-2023)</strong>. You are welcome to use any version of the data sources for the tornado strikes. If you do use the newer versions, keep in mind that you will have some counties with slightly <em>more</em> tornado strikes. In this case, your median value for tornado incidence may be slightly larger than that stated in the assignment (3.22 Median Tornado segments per 100 miles, per county). The NOAA updated version is located <a href="https://www.spc.noaa.gov/gis/svrgis/zipped/1950-2023-torn-aspath.zip">HERE</a>.</p>
+</div>
+</div>
+<p>To begin the assignment, download and access the assignment directory. Create a new assignment <code>.qgis</code> and connect <em>Data Source Manager</em> to the assignment directory to import assignment input vector features:</p>
+<ul>
+<li>Data download includes:
+<ul>
+<li><code>mobile_home_percentage_county.zip</code></li>
+<li><code>1950-2021-torn-aspath.zip</code> (Tornado Paths, not points)</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/data.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Assignment Data Structure</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/prj.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>.prj files for data inputs</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the Tornado data <code>.prj</code> (top) is not the same as the <code>.prj</code> for the mobile home data(bottom). Utilize the projected mobile home data as the project and layer CRS. Thus, reproject the Tornado data from <code>WGS84</code> to <code>USA Contiguous Lambert Conformal Conic</code>.</p>
+</div>
+</div>
+</section>
+<section id="assignment-step-1" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-1">Assignment Step 1</h2>
+<p>For this project, the plugin <code>GROUP STATS</code> will be utilized. Download this plugin to the desktop GIS:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/gs.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Group Stats Plugin</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/gs.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Group Stats Plugin installed to Main Toolbar</em></figcaption><p></p>
+</figure>
+</div>
+<p>With the assignment data downloaded to your local drive, make a connection via <em>Data Source Manager</em>. Make sure to load the mobile home data first to set the project CRS. Then load the tornado data, and immediately reproject the tornado data to the project CRS <code>USA Contiguous Lambert Conformal Conic</code> with the EPSG code as <code>EPSG:102004</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/prj.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Project CRS - <code>EPSG:102004</code></em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Next</strong>, load <code>1950-2018-torn-aspath.zip</code>. Reproject and export the layer to the project directory:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/reproject.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Reproject to <code>EPSG:102004</code></em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="assignment-step-2---data-preprocessing-for-the-vector-features" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-2---data-preprocessing-for-the-vector-features">Assignment Step 2 - Data preprocessing for the vector features</h2>
+<p>Like previous assignments, QGIS will require topology fixes in order for successful overlay analysis. Run <code>Fix geometries</code> on both layers. Export these layers to the project directory as <code>tornado_paths.shp</code> and <code>mobile_home_counties.shp</code>. These two layers will be the <strong>Hazard</strong> and <strong>Vulnerability</strong> inputs to the analysis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/fix.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Fix Geometries</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="assignment-step-3---overlay-geoprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-3---overlay-geoprocessing">Assignment Step 3 - Overlay Geoprocessing</h2>
+<p>Currently many tornado paths in the historical dataset <code>tornado_paths</code> cross multiple counties. In order to derive a count of tornadoes per county, there are several overlay techniques that could be utilized. Here we will use <em>Intersection</em>; the result will be a polyline dataset that contains the attributes of the counties in the <code>mobile_home_counties</code> along with those of the original `tornado_paths.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/overlay.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Overlay Setup</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>Run</strong> <em>Intersection</em> as follows and output as <code>tornado_county.shp</code>:</li>
+</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This geoprocessing step may take upwards 10 or 15 minutes.</p>
+</div>
+</div>
+<ul>
+<li>In review of the results, Abbeville, SC is the first county in the attribute table (sort on <code>COUNTYNAME</code>). Note that the tornado segments are now cut at the county boundary as a result of the <em>Intersection</em> geoprocess:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/overlay.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Intersection Result</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="assignment-step-4---table-development" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-4---table-development">Assignment Step 4 - Table Development</h2>
+<p>With the <em>Intersection</em> complete, a summary table will be developed and joined to <code>mobile_home_counties</code>. The field <code>FIPS</code> will be utilized within the <strong>Group Stat</strong> plugin, gaining a summary count of each tornado segment per <code>FIPS</code> county code. This table will then be joined to <code>mobile_home_counties</code> via the <code>FIPS</code> column for further analysis in the attribute table.</p>
+<p>Create a new column called <code>Segment</code> and simply provide a value of <code>1</code> within the new <code>tornado_county.shp</code>. In effect, this is simply a value per tornado segment that will then be summed per county.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/segment.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Field Creation &amp; Population</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/em.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Toggle OFF editing mode</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to <em>Toggle OFF</em> the editing mode once the field <code>segment</code> is created and populated with the integer <code>1</code> value, and the process is complete.</p>
+</div>
+</div>
+<p>Next, populate the <em>Group Stat</em> tool as follows, and note the resulting table with tornado counts <em>sum</em> per <code>FIPS</code>. In this step <em>Rows</em> are given the <code>FIPS</code> identifier column and the <em>Value</em> is set to the <em>sum</em> operation for the column titled <code>segment</code> which contains the value <code>1</code> for each county tornado segment (a total of 66,947 tornado segments).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/segment.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Group Stats population for <code>segment</code> column</em></figcaption><p></p>
+</figure>
+</div>
+<p>With <em>Group Stats</em> still active, navigate to <em>top menu</em> and select to export all records as <code>.csv</code>, pointing to the assignment folder for export and naming the table <code>fips_join</code>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/csv.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Group Stats export to CSV</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/separator.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Semicolon separator within export <code>.csv</code></em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <em>Group Stats</em> tool exports <code>.csv</code> with a semicolon separator.</p>
+</div>
+</div>
+<p>Load <code>fips_join.csv</code> into the assignment project via <em>Delimited Text</em> within the <em>Data Source Manager</em>, and check the <em>Semicolon</em> separator checkbox within the <em>Custom delimiter</em> option. Note also that this table does not contain any geometry attributes so the <em>Geometry Definitions</em> will be set accordingly.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/txt.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em><code>.csv</code> import via Delimited Text</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, activate <em>Join attributes by field value</em> from the <em>Processing Toolbox</em>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/txt.join.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em><code>.csv</code> import via Delimited Text</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/join.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Table Join</figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The resulting join will feature <code>209</code> records that do not join; these are the counties that did not have at least <code>1</code> tornado segment. Do note that if you use newer versions of the tornado strike data, you may have a few more counties that received a tornado segement over the previous tornado stike data version.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/selection.none.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Null results selected - counties with no tornadoes</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="video-guide-i-step-i---ix" class="level2">
+<h2 class="anchored" data-anchor-id="video-guide-i-step-i---ix">Video Guide I | Step I - IX:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1023620559"><img src="assignment_9_fall_25_NINT5380_files/img/C9_Part-I.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption"><em>Steps 1 - 4</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Video Guide I above covers all steps just prior of the full table join. Utilize Video Guide II for coverage of the table join process in Assignment Step #4 above.</p>
+</div>
+</div>
+</section>
+<section id="assignment-step-5---normalization-by-geography-attribute" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-5---normalization-by-geography-attribute">Assignment Step 5 - Normalization by Geography Attribute</h2>
+<p>As counties vary significantly in size, the absolute count of tornadoes per county is not yet comparable. To do so, a constant of <code>100 sq. miles</code> calculated per county, followed by the normalization of counts by geography.</p>
+<p>First, <em>Add geometry attributes</em> (area in square meters) within <code>tornado_counties_joined.shp</code>. This will produce a new temporary layer <code>Added geom info</code> with a new <code>area</code> column:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/geom.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Add Geometry Attributes</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/geom.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Results: area column within attribute table</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, calculate a square miles column with the Field Calculator using the following equation in a new field <code>sq_miles</code>, type decimal. Divide by 100 to normalize size for a final count of tornadoes per 100 sq miles within each county:</p>
+<pre><code>(area * 0.00000038610)/100</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/sq.cal.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>table calculation preparation for final normalization - tornadoes per 100 square miles</em></figcaption><p></p>
+</figure>
+</div>
+<p>Finally, normalize the tornado count per 100 county miles within a new field <code>count_100</code>, type whole number:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/cal.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>table calculation preparation for final normalization - tornadoes per 100 square miles</em></figcaption><p></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that the resulting column for the segment count is now titled <code>None</code> within <code>Add geom info</code> temporary layer.</p>
+</div>
+</div>
+</section>
+<section id="assignment-step-6---rank-assignments" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-6---rank-assignments">Assignment Step 6 - Rank Assignments</h2>
+<p>In this next step, 4 total rank assignments will be given to a new column <code>risk_rank</code> based on a series of selections.</p>
+<blockquote class="blockquote">
+<p>Use the median societal exposure and tornado incidence scores as the break between high and low exposure and incidence - <a href="https://www.scribd.com/document/361951273/Tornado-Vulnerability-in-Texas">source</a>.</p>
+</blockquote>
+<ul>
+<li>4 Rank Conditions:</li>
+</ul>
+<blockquote class="blockquote">
+<p>11.22% = Median Mobile Home percentage per County</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>3.22 Median Tornado segments per 100 miles, per county (when producing this statistic, NULL values are assumed to be value 0.)</p>
+</blockquote>
+<pre><code>
+Condition #1 -
+Low Incidence, Low Exposure
+LI = &lt;3.22
+LE = &lt;11.22
+
+
+Condition #2 -
+Low Incidence, High Exposure
+LI = &lt;3.22
+HE = &gt;=11.22
+
+
+Condition #3 -
+High Incidence, Low Exposure
+HI = &gt;=3.22
+LE = &lt;11.22
+
+
+Condition #4 -
+High Incidence, High Exposure
+HI = &gt;=3.22
+HE = &gt;=11.22
+</code></pre>
+<p>Utilize fields <code>count_100</code> and <code>MobileHome</code> for <strong>Incidence</strong> and <strong>Exposure</strong>, respectively.</p>
+<p>To Start, make each selection condition #1 through #4 within <code>count_100</code> and <code>MobileHome</code>. Create a new column <code>risk_rank</code>, type whole number and make assignment 1, 2 , 3 and 4 in this new column based on each selection, respectively.</p>
+<blockquote class="blockquote">
+<p>Populate with value -999 to start. Any records after assignments #1 through #4 with -999 resulting are simply the NULL values - counties that have no tornadoes. Those can either be symbolized in the final map as ‘No Incidence Records’:</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/rr.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>populate default value -999 with new column <code>risk.rank</code></em></figcaption><p></p>
+</figure>
+</div>
+<p>Selection and Assignments for Conditions:</p>
+<p>Make sure to clear selections after each condition is assigned in <code>risk.rank</code>:</p>
+<ul>
+<li><p>Condition #1 -</p>
+<ul>
+<li>Select by Expression: <code>"MobileHome" &lt;11.22 and  "count_100" &lt;3.22</code></li>
+<li>Field Calculator within <code>risk.rank</code> = 1</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/condition.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Condition 1</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Condition #2 -</p>
+<ul>
+<li>Select by Expression: <code>"MobileHome" &gt;=11.22 and  "count_100" &lt;3.22</code></li>
+<li>Field Calculator within <code>risk.rank</code> = 2</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/cal.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Condition 2</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Condition #3 -</p>
+<ul>
+<li>Select by Expression: <code>"MobileHome" &lt;11.22 and  "count_100" &gt;=3.22</code></li>
+<li>Field Calculator within <code>risk.rank</code> = 3</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/cal.3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Condition 3</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Condition #4 -</p>
+<ul>
+<li>Select by Expression: <code>"MobileHome" &gt;=11.22 and  "count_100" &gt;=3.22</code></li>
+<li>Field Calculator within <code>risk.rank</code> = 4</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/cal.4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Condition 4</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="video-guide-ii-step-ix---xii" class="level2">
+<h2 class="anchored" data-anchor-id="video-guide-ii-step-ix---xii">Video Guide II | Step IX - XII:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://vimeo.com/1023624380"><img src="assignment_9_fall_25_NINT5380_files/img/C9_Part-II.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption"><em>Steps 1 - 8</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="assignment-step-7---thematic-design" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-step-7---thematic-design">Assignment Step 7 - Thematic Design</h2>
+<p>If you have not done so, export <code>Add geom info</code> layer with the rank calculations complete as <code>county_tornado_ranks.shp</code>. Once complete, thematic assignments will be given as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/theme.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Thematic Design for combination ranks none to 4</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/theme.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Thematic Design for combination ranks none to 4</em></figcaption><p></p>
+</figure>
+</div>
+<p>As seen in the resulting map, condition 4 exhibits a spatial pattern of concentration centered on the southeastern US counties due to the frequency of tornadoes (Hazard) intersecting human geography by building type (Vulnerability + Exposure).</p>
+</section>
+<section id="map-layout-deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="map-layout-deliverable">Map layout &amp; Deliverable:</h2>
+<ul>
+<li><p>To development the final map design, utilize the map example PDF below to help guide your process.</p></li>
+<li><p>Final map layout will include the following elements on either a 11x17” or 8.5x11” Portrait 300 DPI:</p>
+<ul>
+<li>Main map frame featuring your cartographic output with thematic design</li>
+<li>A map title</li>
+<li>Legend representing each thematic rank category</li>
+<li>Data source &amp; Author tag</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assignment_9_fall_25_NINT5380_files/img/map.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Example Layouts - Assignment 9</em></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>Utilize the following map example to guide your design process:</p></li>
+<li><p><a href="https://mapexamples.s3.us-east-2.amazonaws.com/c7/c7_map-examples_v2.pdf">Example Layout - Assignment 9 PDF</a></p></li>
+</ul>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources:</h2>
+<ul>
+<li><a href="https://education.nationalgeographic.org/resource/tornadoes-and-global-warming-there-connection/">Tornadoes and Global Warming: Is There a Connection?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Social_vulnerability">Social Vulnerability</a></li>
+<li><a href="https://svi.cdc.gov/SVIDataToolsDownload.html">SVI Tools</a></li>
+<li><a href="https://svi.cdc.gov/Documents/Data/2014_SVI_Data/SVI2014Documentation.pdf">SVI methods &amp; metadata</a></li>
+<li><a href="https://cleantechnica.com/2017/09/14/low-income-communities-hardest-hit-hurricane-harvey/">Hurricane Harvey Vulnerability Mapping</a></li>
+<li><a href="https://www.scribd.com/document/361958444/A-New-Study-Explores-the-Complexities-of-Tornadoes-Risk-Poverty-And-Housing">Double danger in the double wide: Dimensions of poverty, housing quality and tornado impacts</a></li>
+<li><a href="https://www.scribd.com/document/361951273/Tornado-Vulnerability-in-Texas">Tornado Vulnerability in Texas - Methods</a></li>
+<li><a href="https://d3.maps.arcgis.com/apps/Cascade/index.html?appid=31d1199ec45b4475aa4698f5e7010422">Turning the Corner (TTC) - Vulnerability Housing Index for Detroit, MN</a></li>
+<li><a href="https://anhd.org/blog/introducing-displacement-alert-map-20">NYC Displacement Alert Map (DAP Map)</a></li>
+<li><a href="https://www.gislounge.com/visualizing-climate-change-maps/">Climate Change Mapping</a></li>
+<li><a href="https://www.nytimes.com/interactive/2018/05/24/us/disasters-hurricanes-wildfires-storms.html">NY Times - disasters over time</a></li>
+<li><a href="https://www.vox.com/a/lead-exposure-risk-map">Lead Exposure Risk Map</a></li>
+<li><a href="https://medium.com/spatialist/making-maps-useful-for-addressing-disasters-and-climate-change-530751966a3f">‘useful’ disaster and climate change maps</a></li>
+<li><a href="https://www.citylab.com/equity/2017/12/economic-inequality-and-health-inequality-are-inextricably-linked/547349/?utm_source=SFTwitter">Distressed Communities Index (DCI)</a></li>
+<li><a href="https://s3.amazonaws.com/weekly-reading-research/Cutter_VulnerabilityToEnvironmentalHazards.pdf">Vulnerability to Environmental Hazards - Susan Cutter</a></li>
+<li><a href="https://s3.amazonaws.com/weekly-reading-research/Ashley_Strader_tornado_housing_vulnerability.pdf">Finescale Assessment of Mobile Home Tornado Vulnerability in the Central and Southeast United States - Stradler + Ashley</a></li>
+<li><a href="https://s3.amazonaws.com/weekly-reading-research/26081_kp1concepdisasterrisk1.pdf">INTRODUCTION TO DISASTER RISK REDUCTION</a></li>
+<li><a href="https://s3.amazonaws.com/weekly-reading-research/bams-d-15-00150.1.pdf">RECIPE FOR DISASTER -How the Dynamic Ingredients of Risk and Exposure Are Changing the Tornado Disaster Landscape</a></li>
+<li><a href="https://www.cnn.com/2019/03/06/us/alabama-tornadoes-before-and-after/index.html">CNN Alabama Tornadoes 3/6/2019</a></li>
+<li><a href="https://understandrisk.org/resources/">Understanding Risk</a></li>
+<li><a href="https://www.cnbc.com/2019/04/08/climate-change-will-crush-real-estate-values-for-unprepared-investors-report.html">CNBC Climate Change and Insurance</a></li>
+<li><a href="https://www.nytimes.com/interactive/2019/08/06/climate/world-water-stress.html">World water stress</a></li>
+<li><a href="https://www.npr.org/2019/09/03/754044732/as-rising-heat-bakes-u-s-cities-the-poor-often-feel-it-most">NPR income &amp; urban heat</a></li>
+<li><a href="https://www.unisdr.org/2016/iddr/IDDR2018_Economic%20Losses.pdf">Economic Losses,Poverty &amp; Disasters 1998-2017</a></li>
+<li><a href="https://medium.com/@climatesurvivor/where-should-i-move-to-avoid-climate-change-4021dd39fc7d">Climate Change: Where Should I Move?</a></li>
+<li><a href="https://www.washingtonpost.com/climate-environment/interactive/2024/home-insurance-climate-change-housing-market/?utm_source=email&amp;utm_medium=acq-nat&amp;utm_campaign=dr-october-24&amp;utm_content=dtpmonthly_20241017_b">Washington Post: Home Insurance + Climate Change</a></li>
+<li><a href="https://www.nytimes.com/interactive/2023/11/19/upshot/carolina-hurricanes.html">NYT: Hurricanes</a></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="assignment_9_fall_25_NINT5380_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

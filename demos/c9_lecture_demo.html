@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2025-11-02">
+
+<title>Class 9 Lecture Demonstration Lab</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="c9_lecture_demo_files/libs/clipboard/clipboard.min.js"></script>
+<script src="c9_lecture_demo_files/libs/quarto-html/quarto.js"></script>
+<script src="c9_lecture_demo_files/libs/quarto-html/popper.min.js"></script>
+<script src="c9_lecture_demo_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="c9_lecture_demo_files/libs/quarto-html/anchor.min.js"></script>
+<link href="c9_lecture_demo_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="c9_lecture_demo_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="c9_lecture_demo_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="c9_lecture_demo_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="c9_lecture_demo_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="c9_lecture_demo_files/styles.css">
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#mapping-vulnerability-spatial-statistics" id="toc-mapping-vulnerability-spatial-statistics" class="nav-link active" data-scroll-target="#mapping-vulnerability-spatial-statistics">Mapping Vulnerability + Spatial Statistics</a></li>
+  <li><a href="#part-i-explore-svi-vulnerability-dataset-histogram-and-statistic-tool" id="toc-part-i-explore-svi-vulnerability-dataset-histogram-and-statistic-tool" class="nav-link" data-scroll-target="#part-i-explore-svi-vulnerability-dataset-histogram-and-statistic-tool">Part I: Explore SVI vulnerability dataset + Histogram and Statistic Tool</a></li>
+  <li><a href="#part-ii-linear-scale-interpolation" id="toc-part-ii-linear-scale-interpolation" class="nav-link" data-scroll-target="#part-ii-linear-scale-interpolation">Part II: Linear Scale Interpolation</a></li>
+  <li><a href="#part-iii-min---max-normalization" id="toc-part-iii-min---max-normalization" class="nav-link" data-scroll-target="#part-iii-min---max-normalization">Part III: Min - Max Normalization</a></li>
+  <li><a href="#part-iv---beyond-normalization---how-to-create-clusters-of-similarity" id="toc-part-iv---beyond-normalization---how-to-create-clusters-of-similarity" class="nav-link" data-scroll-target="#part-iv---beyond-normalization---how-to-create-clusters-of-similarity">Part IV - Beyond Normalization - How to create Clusters of Similarity</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Class 9 Lecture Demonstration Lab</h1>
+<p class="subtitle lead">Fall 2025 | <a href="https://courses.newschool.edu/courses/NINT5380">NINT5380 - CRN2189</a></p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 2, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="mapping-vulnerability-spatial-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-vulnerability-spatial-statistics">Mapping Vulnerability + Spatial Statistics</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/header.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Mapping Vulnerability Model</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="part-i-explore-svi-vulnerability-dataset-histogram-and-statistic-tool" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-explore-svi-vulnerability-dataset-histogram-and-statistic-tool">Part I: Explore SVI vulnerability dataset + Histogram and Statistic Tool</h2>
+<ul>
+<li><a href="https://www.dropbox.com/s/6xu9d0ssk0wf8uq/SVI2020_US_COUNTY.zip?dl=1">Direct Data Download for this Demonstration Lab</a></li>
+</ul>
+<p>To start, we will access the latest <a href="https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html">2020 SVI dataset for US Counties</a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.load.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>CDC SVI Data Download Location</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>SOVI Model</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>SOVI Model - Themes Structure</em></figcaption><p></p>
+</figure>
+</div>
+<p>As discussed in the <a href="https://www.atsdr.cdc.gov/placeandhealth/svi/documentation/SVI_documentation_2020.html">2020 CDC SOVI Model documentation</a>, the dataset’s theme structure is scored based on a <a href="https://www.statisticshowto.com/probability-and-statistics/percentiles-rank-range/">percentile rank</a>. Percentile scoring highlights the ‘below’ values for any percentile position within the dataset.</p>
+<blockquote class="blockquote">
+<p>A percentile is a comparison score between a particular score and the scores of the rest of a group. It shows the percentage of scores that a particular score surpassed.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/percentile.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Percentile example using data histogram</em></figcaption><p></p>
+</figure>
+</div>
+<p>Relative to a quartile statistical approach, the following statements can be made about the percentile approach to scoring:</p>
+<ul>
+<li>The 25th percentile is also called the first quartile.</li>
+<li>The 50th percentile is generally the median.</li>
+<li>The 75th percentile is also called the third quartile.</li>
+<li>The difference between the third and first quartiles is the interquartile range.</li>
+</ul>
+<p>With <em>QGIS</em> open and pointed to the datasource <code>SVI2020_US_COUNTY</code>, first map on <code>RPL_THEMES</code> and explore the percentile approach in the mapping:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>RPL_THEMES mapped to 10 classes</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>RPL_THEMES mapped to 10 classes</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/sovi.5.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>RPL_THEMES mapped to 10 classes</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, access the <em>Show Statistical Summary</em> tool from the main toolbar and point it to the <code>RPL_THEMES</code> variable:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/stat.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Show Statistical Summary</em></figcaption><p></p>
+</figure>
+</div>
+<p>The statistical summary for <code>RPL_THEMES</code> shows this variable is normalized <code>0-1</code>. Note the following CDC SOVI methods statement for its scoring:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/rankings.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>CDC SOVI Ranking Method</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, utilize <em>Python Console</em> to develop a percentile profile of the <em>estimated population</em> for all US Counties - <code>E_TOTPOP</code>:</p>
+<ul>
+<li>Open the <em>Python Console</em>:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/python.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Access Python Console</em></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>Copy and then input the following code snippet to the console and run the code:</li>
+</ul>
+<pre><code>
+import numpy as np
+lyr = QgsProject.instance().mapLayersByName('SVI2020_US_county')[0]
+fieldname = 'E_TOTPOP'
+data =[f[fieldname] for f in lyr.getFeatures()]
+for p in [0,5,10,20,30,40,50,60,70,80,90,100]:
+    print("{0} th percentile is: {1}".format(p, np.percentile(data, p)))
+    </code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/python.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Code posted to Python Console, ready to run (green arrow, upper left)</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="part-ii-linear-scale-interpolation" class="level2">
+<h2 class="anchored" data-anchor-id="part-ii-linear-scale-interpolation">Part II: Linear Scale Interpolation</h2>
+<p>Following a statistical exploration of the <code>RPL_THEMES</code> and <code>E_TOTPOP</code> variables, we will turn to the variable <code>EP_AGE17</code> - <em>percentage of persons age 17 and younger, estimated</em>. Note that this is not the absolute value population; it is already a lower-level normalization. Run the <em>Show Statistical Summary</em> tool on variable <code>EP_AGE17</code>:</p>
+<p><img src="c9_lecture_demo_files/img/ep17.1.png" class="img-fluid" alt="EP_AGE17 variable"> <img src="c9_lecture_demo_files/img/ep17.2.png" class="img-fluid" alt="EP_AGE17 variable statistical summary"></p>
+<p>From the <em>Statistical Summary</em>, the attribute <code>EP_AGE17</code> has the following minimum and maximum values:</p>
+<ul>
+<li><h5 id="min-0.2" class="anchored">MIN = <code>0.2</code></h5></li>
+<li><h5 id="max-42.7" class="anchored">MAX = <code>42.7</code></h5></li>
+</ul>
+<p>The universe of values can be anywhere from <code>0.2</code> upwards to <code>42.7</code>. With linear interpolation the goal is to ‘remap’ these original values to a more standardized, ‘simple’ scale. For our purposes we will map the values to 1 &gt; 10.</p>
+<p>The <code>scale_linear</code> function transforms a given value from an input domain to an output range using linear interpolation.</p>
+<p>With the <em>Field Calculator</em> open, we will create a new column <code>LIN_S_17</code>, type integer, and populate using a linear scale math function as follows:</p>
+<pre><code>scale_linear("EP_AGE17", 0.2, 42.7 , 1, 10)
+</code></pre>
+</section>
+<section id="part-iii-min---max-normalization" class="level2">
+<h2 class="anchored" data-anchor-id="part-iii-min---max-normalization">Part III: Min - Max Normalization</h2>
+<p>While Linear Interpolation is simple and quick, its not necessarily the most precise scaling method available. The resulting scale may not capture breakpoints best suited to a particular mapping output. Another typical approach is <em>Min - Max Normalization</em>. The following equation is utilized for this normalization:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/mn-max.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Min Max Normalization Equation</em></figcaption><p></p>
+</figure>
+</div>
+<p>Using the formula, the following equation can be applied to a new column in Field Calculator titled <code>MM_17</code>, type decimal:</p>
+<pre><code>
+Formula = X new = (X – X min) / (X max – X min)
+</code></pre>
+<p>Translated to the <code>EP_AGE17</code> attribute:</p>
+<pre><code>
+("EP_AGE17" - 0.2) / (42.7 - 0.2)
+</code></pre>
+<p>The <em>Min - Max Normalization</em> can also be performed for a custom range, i.e.&nbsp;<code>1 &gt; 10</code> as opposed to <code>0 &gt; 1</code> as we have done thus far. The formula for this normalization is as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/mn.max.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Min Max Normalization Equation for custom range</em></figcaption><p></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>a and b are the min-max values of the attribute array.</p>
+</blockquote>
+</section>
+<section id="part-iv---beyond-normalization---how-to-create-clusters-of-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="part-iv---beyond-normalization---how-to-create-clusters-of-similarity">Part IV - Beyond Normalization - How to create Clusters of Similarity</h2>
+<p>The purpose of normalization is typically to normalize multiple variables across different measurements in order to create consistency in a final scoring mechanism. We can hand over a final scoring process to a clustering algorithm that will ‘compare’ or ‘evaluate’ the values in one variable column to those of other variable columns, resulting in ‘similar’ groupings or clusters. The disadvantage of this approach is that the resulting clusters don’t show ‘directionality’; that is, we can’t see in the categorical result of the clustering process any ‘more’ or ‘less’ measurement, just that the resulting clusters are of similar pattern between the variables inside the cluster and dissimilar outside the cluster.</p>
+<p>With clustering - also known as group analysis, we may want to find cluster patterns between two variables as follows:</p>
+<ul>
+<li><h5 id="housing-in-structures-with-10-or-more-units---ep_munit" class="anchored">Housing in structures with 10 or more units - <code>EP_MUNIT</code></h5></li>
+<li><h5 id="persons-aged-17-and-younger---ep_age17" class="anchored">Persons aged 17 and younger - <code>EP_AGE17</code></h5></li>
+</ul>
+<p>In QGIS there is a clustering tool that utilizes several algorithm options. For the demonstration we will use the K Means method in the tool.</p>
+<p>First, add the plugin to QGIS - Attribute based clustering:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/attribute.1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Attribute Based Clustering QGIS Plugin</em></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/attribute.2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Attribute Based Clustering QGIS Plugin Installed- Icon located at Main Menu</em></figcaption><p></p>
+</figure>
+</div>
+<p>Next, Populate the tool as follows. Note that normalize attributes is <em>toggled ON</em>; in effect this instructs the tool to normalize each attribute so that outliers do not overly impact the resulting clusters:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c9_lecture_demo_files/img/attribute.3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><em>Attribute Based Clustering K-Means Tool Parameters</em></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ul>
+<li><a href="https://geodacenter.github.io/">GeoDa Spatial Statistics GIS Program</a></li>
+<li><a href="https://androidkt.com/how-to-scale-data-to-range-using-minmax-normalization/">Min Max Normalization</a></li>
+<li><a href="https://knowyourspace.dk/2021/04/09/using-the-attribute-based-clustering-plugin-qgis/">QGIS Attribute Cluster Plugin</a></li>
+<li><a href="https://www.atsdr.cdc.gov/placeandhealth/svi/index.html">CDC SOVI</a></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/^(?:http:|https:)\/\/www\.quarto\.org\/custom/);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          // default icon
+          link.classList.add("external");
+      }
+    }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="c9_lecture_demo_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
